@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tế Bào Phiêu Lưu Ký</title>
+<title>🧬 Tế Bào Phiêu Lưu Ký v2</title>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap");
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden;color:#fff}
-.screen{position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;transition:opacity .5s;z-index:10}
+.screen{position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;transition:opacity .4s;z-index:10}
 .screen.hidden{opacity:0;pointer-events:none}
 #menu-screen{background:radial-gradient(ellipse at center,#0d1b2a,#0a0a1a)}
-.menu-title{font-size:2.8rem;font-weight:900;text-align:center;margin-bottom:10px;background:linear-gradient(135deg,#4CAF50,#2196F3,#9C27B0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:tpulse 3s ease-in-out infinite}
-.menu-sub{font-size:1.1rem;color:rgba(255,255,255,.65);margin-bottom:26px;text-align:center}
+.menu-title{font-size:2.7rem;font-weight:900;text-align:center;margin-bottom:8px;background:linear-gradient(135deg,#4CAF50,#2196F3,#9C27B0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:tpulse 3s ease-in-out infinite}
+.menu-sub{font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:22px;text-align:center}
 @keyframes tpulse{0%,100%{filter:drop-shadow(0 0 18px rgba(76,175,80,.5))}50%{filter:drop-shadow(0 0 38px rgba(33,150,243,.8))}}
-.deco{position:absolute;font-size:1.5rem;opacity:.14;animation:fl 4s ease-in-out infinite;user-select:none}
+.deco{position:absolute;font-size:1.5rem;opacity:.13;animation:fl 4s ease-in-out infinite;user-select:none}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-.menu-btns{display:flex;flex-direction:column;gap:13px;align-items:center}
-.btn{padding:13px 44px;border:none;border-radius:50px;font-family:"Nunito",sans-serif;font-size:1.05rem;font-weight:800;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px}
+.menu-btns{display:flex;flex-direction:column;gap:12px;align-items:center}
+.btn{padding:12px 42px;border:none;border-radius:50px;font-family:"Nunito",sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px}
 .btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 28px rgba(0,0,0,.5)}
 .btn:active{transform:translateY(0)}
 .bg{background:linear-gradient(135deg,#4CAF50,#2E7D32);color:#fff;box-shadow:0 5px 18px rgba(76,175,80,.4)}
@@ -25,108 +25,144 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
 .bo{background:linear-gradient(135deg,#FF9800,#E65100);color:#fff;box-shadow:0 5px 18px rgba(255,152,0,.4)}
 .bp{background:linear-gradient(135deg,#9C27B0,#6A1B9A);color:#fff;box-shadow:0 5px 18px rgba(156,39,176,.4)}
 .by{background:linear-gradient(135deg,#FFD700,#F57F17);color:#1a0a00;box-shadow:0 5px 18px rgba(255,215,0,.4)}
-.chips{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap;justify-content:center}
-.chip{padding:6px 16px;border-radius:28px;font-size:.83rem;font-weight:700;border:2px solid}
+.bc{background:linear-gradient(135deg,#00BCD4,#006064);color:#fff;box-shadow:0 5px 18px rgba(0,188,212,.4)}
+.chips{display:flex;gap:9px;margin:14px 0;flex-wrap:wrap;justify-content:center}
+.chip{padding:5px 14px;border-radius:26px;font-size:.8rem;font-weight:700;border:2px solid}
 .c1{color:#4CAF50;border-color:#4CAF50;background:rgba(76,175,80,.1)}
 .c2{color:#2196F3;border-color:#2196F3;background:rgba(33,150,243,.1)}
 .c3{color:#FF9800;border-color:#FF9800;background:rgba(255,152,0,.1)}
 .c4{color:#9C27B0;border-color:#9C27B0;background:rgba(156,39,176,.1)}
-/* Tutorial */
-#tutorial-screen{background:rgba(0,0,0,.9);padding:20px}
+/* ── NAME SCREEN ── */
+#name-screen{background:radial-gradient(ellipse at center,#0d1b2a,#0a0a1a)}
+.nbox{background:linear-gradient(135deg,rgba(18,28,48,.98),rgba(8,12,28,.98));border:2px solid rgba(76,175,80,.3);border-radius:24px;padding:38px 48px;text-align:center;max-width:420px;width:90%;animation:slideUp .4s ease}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.nicon{font-size:3.5rem;margin-bottom:12px}
+.nbox h2{font-size:1.55rem;font-weight:900;margin-bottom:8px;background:linear-gradient(135deg,#4CAF50,#2196F3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nbox p{font-size:.88rem;opacity:.7;margin-bottom:24px;line-height:1.55}
+.ninp{width:100%;padding:13px 18px;background:rgba(255,255,255,.07);border:2px solid rgba(76,175,80,.3);border-radius:14px;color:#fff;font-family:"Nunito",sans-serif;font-size:1rem;font-weight:700;outline:none;transition:border-color .3s;margin-bottom:18px;text-align:center}
+.ninp:focus{border-color:#4CAF50}
+.ninp::placeholder{opacity:.45;font-weight:400}
+/* ── TUTORIAL ── */
+#tutorial-screen{background:rgba(0,0,0,.92);padding:20px}
 .tbox{max-width:660px;width:100%;background:linear-gradient(135deg,rgba(18,28,48,.98),rgba(8,12,28,.98));border-radius:22px;border:2px solid rgba(76,175,80,.3);overflow:hidden;max-height:90vh;display:flex;flex-direction:column}
-.thead{padding:17px 22px;background:linear-gradient(135deg,#4CAF50,#2196F3);font-size:1.35rem;font-weight:800}
+.thead{padding:16px 22px;background:linear-gradient(135deg,#4CAF50,#2196F3);font-size:1.3rem;font-weight:800}
 .ttabs{display:flex;border-bottom:1px solid rgba(255,255,255,.1)}
-.ttab{flex:1;padding:10px 4px;background:none;border:none;color:rgba(255,255,255,.5);font-family:"Nunito",sans-serif;font-size:.79rem;font-weight:700;cursor:pointer;transition:all .3s;border-bottom:3px solid transparent}
+.ttab{flex:1;padding:9px 4px;background:none;border:none;color:rgba(255,255,255,.5);font-family:"Nunito",sans-serif;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .3s;border-bottom:3px solid transparent}
 .ttab.active{color:#fff;border-bottom-color:#4CAF50}
-.tbody{flex:1;overflow-y:auto;padding:18px 22px}
+.tbody{flex:1;overflow-y:auto;padding:16px 20px}
 .tpage{display:none}.tpage.active{display:block}
-.pcard{background:rgba(255,255,255,.05);border-radius:12px;padding:12px 16px;margin-bottom:11px;border-left:4px solid}
-.pcard h3{font-size:.91rem;font-weight:800;margin-bottom:5px}.pcard p{font-size:.85rem;opacity:.82;line-height:1.55}
+.pcard{background:rgba(255,255,255,.05);border-radius:11px;padding:11px 15px;margin-bottom:10px;border-left:4px solid}
+.pcard h3{font-size:.88rem;font-weight:800;margin-bottom:4px}.pcard p{font-size:.82rem;opacity:.82;line-height:1.55}
 .pcard.g1{border-color:#4CAF50}.pcard.s{border-color:#2196F3}.pcard.g2{border-color:#FF9800}.pcard.m{border-color:#9C27B0}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
-.citem{background:rgba(255,255,255,.05);border-radius:9px;padding:10px;text-align:center;font-size:.85rem}
-.citem kbd{display:inline-block;padding:3px 7px;background:rgba(255,255,255,.15);border-radius:5px;font-size:.92rem}
-.tfoot{padding:12px 22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between}
-/* Game */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.citem{background:rgba(255,255,255,.05);border-radius:9px;padding:9px;text-align:center;font-size:.82rem}
+.citem kbd{display:inline-block;padding:2px 6px;background:rgba(255,255,255,.15);border-radius:5px;font-size:.9rem}
+.tfoot{padding:11px 20px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between}
+/* ── GAME ── */
 #game-screen{background:transparent}
-.glayout{display:flex;align-items:center;gap:14px;padding:10px}
-.sidebar{width:180px;display:flex;flex-direction:column;gap:8px}
-.hpanel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px}
-.hlbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:3px}
-.hval{font-size:1.6rem;font-weight:900;line-height:1}
+.glayout{display:flex;align-items:center;gap:12px;padding:8px}
+.sidebar{width:178px;display:flex;flex-direction:column;gap:7px}
+.hpanel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:9px 11px}
+.hlbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:2px}
+.hval{font-size:1.55rem;font-weight:900;line-height:1}
 .sc{color:#FFD700}.mx{color:#FF6B6B}
-.phind{background:rgba(255,255,255,.05);border-radius:12px;padding:10px 12px;border:2px solid;transition:border-color .5s,box-shadow .5s}
-.phind.g1{border-color:#4CAF50;box-shadow:0 0 13px rgba(76,175,80,.28)}
-.phind.s{border-color:#2196F3;box-shadow:0 0 13px rgba(33,150,243,.28)}
-.phind.g2{border-color:#FF9800;box-shadow:0 0 13px rgba(255,152,0,.28)}
-.phind.m{border-color:#9C27B0;box-shadow:0 0 13px rgba(156,39,176,.28)}
-.pnm{font-size:1rem;font-weight:900;margin-bottom:3px}
+.phind{background:rgba(255,255,255,.05);border-radius:11px;padding:9px 11px;border:2px solid;transition:border-color .5s,box-shadow .5s}
+.phind.g1{border-color:#4CAF50;box-shadow:0 0 12px rgba(76,175,80,.28)}
+.phind.s{border-color:#2196F3;box-shadow:0 0 12px rgba(33,150,243,.28)}
+.phind.g2{border-color:#FF9800;box-shadow:0 0 12px rgba(255,152,0,.28)}
+.phind.m{border-color:#9C27B0;box-shadow:0 0 12px rgba(156,39,176,.28)}
+.pnm{font-size:.95rem;font-weight:900;margin-bottom:2px}
 .pg1{color:#4CAF50}.ps{color:#2196F3}.pg2{color:#FF9800}.pm{color:#9C27B0}
-.pdesc{font-size:.69rem;opacity:.7;line-height:1.4}
-.prwrap{background:rgba(255,255,255,.05);border-radius:12px;padding:10px 12px}
-.prtrack{height:8px;background:rgba(255,255,255,.1);border-radius:8px;overflow:hidden;margin-top:5px}
-.prfill{height:100%;border-radius:8px;transition:width .4s}
-.cdiag{background:rgba(255,255,255,.05);border-radius:12px;padding:11px;text-align:center}
-.csvg{width:130px;height:130px}
+.pdesc{font-size:.66rem;opacity:.7;line-height:1.4}
+.prwrap{background:rgba(255,255,255,.05);border-radius:11px;padding:9px 11px}
+.prtrack{height:7px;background:rgba(255,255,255,.1);border-radius:7px;overflow:hidden;margin-top:4px}
+.prfill{height:100%;border-radius:7px;transition:width .4s}
+/* ── TEMPLATE HUD (Phase S) ── */
+#tmpl-wrap{background:rgba(33,150,243,.08);border:1px solid rgba(33,150,243,.25);border-radius:11px;padding:9px 11px}
+.tmpl-pairs{display:flex;gap:4px;margin:5px 0;align-items:center}
+.tmpl-pair{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1}
+.tmpl-nuc{font-size:.82rem;font-weight:900;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.07)}
+.tmpl-nuc.active{transform:scale(1.18);box-shadow:0 0 8px currentColor;background:rgba(255,255,255,.15)}
+.tmpl-arrow{font-size:.62rem;opacity:.55;text-align:center}
+.tmpl-eat{font-weight:900;border:2px solid;font-size:.85rem}
+.streak-bar{font-size:.7rem;opacity:.8;margin-top:4px}
+.streak-fire{color:#FF9800;font-weight:900}
+/* ── SCOPE ── */
 .swrap{position:relative;display:flex;justify-content:center;align-items:center}
 .souter{width:516px;height:516px;border-radius:50%;background:#0b1320;border:12px solid #253348;box-shadow:0 0 0 3px #182640,0 0 50px rgba(33,150,243,.14),inset 0 0 70px rgba(0,0,28,.8),0 16px 50px rgba(0,0,0,.7);overflow:hidden;position:relative}
 .sring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:492px;height:492px;border-radius:50%;border:1px solid rgba(255,255,255,.04);pointer-events:none;z-index:5}
-#toast{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-120px);background:rgba(12,22,40,.97);border:2px solid rgba(76,175,80,.5);border-radius:13px;padding:12px 20px;max-width:360px;text-align:center;font-size:.88rem;transition:transform .5s cubic-bezier(.175,.885,.32,1.275);z-index:200;pointer-events:none}
+.cdiag{background:rgba(255,255,255,.05);border-radius:11px;padding:10px;text-align:center}
+.csvg{width:126px;height:126px}
+/* ── TOAST ── */
+#toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-120px);background:rgba(10,18,36,.97);border:2px solid rgba(76,175,80,.5);border-radius:13px;padding:11px 18px;max-width:340px;text-align:center;font-size:.85rem;transition:transform .45s cubic-bezier(.175,.885,.32,1.275);z-index:200;pointer-events:none;min-width:200px}
 #toast.show{transform:translateX(-50%) translateY(0)}
-.tico{font-size:1.5rem;margin-bottom:3px}.ttitle{font-weight:800;font-size:.9rem;margin-bottom:3px}.tmsg{opacity:.82;font-size:.79rem}
-#pov{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;z-index:80;pointer-events:none;opacity:0;transition:opacity .5s;background:rgba(0,0,0,.65)}
+.tico{font-size:1.4rem;margin-bottom:2px}.ttitle{font-weight:800;font-size:.88rem;margin-bottom:2px}.tmsg{opacity:.8;font-size:.77rem}
+/* ── PHASE OVERLAY (1s, smaller, transparent) ── */
+#pov{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;z-index:80;pointer-events:none;opacity:0;transition:opacity .3s;background:rgba(0,0,0,.45)}
 #pov.show{opacity:1;pointer-events:all}
-.tcard{background:rgba(5,9,22,.99);border:3px solid;border-radius:24px;padding:30px 44px;text-align:center;max-width:450px;transform:scale(.86);transition:transform .5s cubic-bezier(.175,.885,.32,1.275)}
+.tcard{background:rgba(5,9,22,.88);border:2px solid;border-radius:18px;padding:20px 32px;text-align:center;max-width:360px;transform:scale(.88);transition:transform .3s cubic-bezier(.175,.885,.32,1.275);backdrop-filter:blur(8px)}
 #pov.show .tcard{transform:scale(1)}
-.tric{font-size:3rem;margin-bottom:10px}.trtl{font-size:1.65rem;font-weight:900;margin-bottom:7px}.trsb{font-size:.9rem;opacity:.83;margin-bottom:13px;line-height:1.55}
-.trbio{font-size:.79rem;opacity:.62;margin-bottom:18px;padding:10px;background:rgba(255,255,255,.05);border-radius:8px;line-height:1.6;border-left:3px solid}
-.trcd{font-size:2rem;font-weight:900;opacity:.85}
+.tric{font-size:2.4rem;margin-bottom:7px}.trtl{font-size:1.35rem;font-weight:900;margin-bottom:5px}.trsb{font-size:.82rem;opacity:.82;margin-bottom:10px;line-height:1.5}
+.trbio{font-size:.72rem;opacity:.6;margin-bottom:14px;padding:8px;background:rgba(255,255,255,.05);border-radius:7px;line-height:1.55;border-left:3px solid}
+.trcd{font-size:2.8rem;font-weight:900;opacity:.9}
+/* ── PAUSE ── */
 #pauseov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:flex;justify-content:center;align-items:center;z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
 #pauseov.show{opacity:1;pointer-events:all}
-.pausecard{background:rgba(5,9,22,.99);border:2px solid rgba(255,255,255,.1);border-radius:22px;padding:34px 50px;text-align:center}
-.pausecard h2{font-size:1.8rem;margin-bottom:16px}.pausebtns{display:flex;flex-direction:column;gap:11px}
+.pausecard{background:rgba(5,9,22,.99);border:2px solid rgba(255,255,255,.1);border-radius:20px;padding:30px 46px;text-align:center}
+.pausecard h2{font-size:1.7rem;margin-bottom:14px}.pausebtns{display:flex;flex-direction:column;gap:10px}
+/* ── GAME OVER ── */
 #gameover-screen{background:rgba(0,0,0,.93)}
-.gocard{background:linear-gradient(135deg,rgba(18,28,48,.99),rgba(8,12,28,.99));border:2px solid rgba(255,255,255,.1);border-radius:24px;padding:30px 40px;text-align:center;max-width:400px;width:90%;animation:slideUp .5s ease}
-@keyframes slideUp{from{transform:translateY(46px);opacity:0}to{transform:translateY(0);opacity:1}}
-.goic{font-size:3rem;margin-bottom:6px}.gotl{font-size:1.8rem;font-weight:900;margin-bottom:3px}.goreason{font-size:.87rem;opacity:.7;margin-bottom:18px}
-.scorebox{background:rgba(255,215,0,.1);border:2px solid rgba(255,215,0,.3);border-radius:11px;padding:12px;margin-bottom:14px}
-.scorebox .sl{font-size:.72rem;opacity:.6}.scorebox .sv{font-size:2.1rem;font-weight:900;color:#FFD700}
-.namerow{display:flex;gap:10px;margin-bottom:14px}
-.nameinp{flex:1;padding:10px 12px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.13);border-radius:10px;color:#fff;font-family:"Nunito",sans-serif;font-size:.9rem;font-weight:600;outline:none;transition:border-color .3s}
-.nameinp:focus{border-color:#4CAF50}.nameinp::placeholder{opacity:.5}
+.gocard{background:linear-gradient(135deg,rgba(18,28,48,.99),rgba(8,12,28,.99));border:2px solid rgba(255,255,255,.1);border-radius:22px;padding:28px 38px;text-align:center;max-width:390px;width:90%;animation:slideUp .45s ease}
+.goic{font-size:2.8rem;margin-bottom:5px}.gotl{font-size:1.7rem;font-weight:900;margin-bottom:2px}.goreason{font-size:.84rem;opacity:.7;margin-bottom:16px}
+.scorebox{background:rgba(255,215,0,.1);border:2px solid rgba(255,215,0,.3);border-radius:10px;padding:11px;margin-bottom:12px}
+.scorebox .sl{font-size:.7rem;opacity:.6}.scorebox .sv{font-size:2rem;font-weight:900;color:#FFD700}
 .gobtns{display:flex;flex-direction:column;gap:9px}
+/* ── LEADERBOARD ── */
 #leaderboard-screen{background:rgba(0,0,0,.93);padding:20px}
-.lbbox{max-width:440px;width:100%;background:linear-gradient(135deg,rgba(18,28,48,.99),rgba(8,12,28,.99));border:2px solid rgba(255,215,0,.2);border-radius:22px;overflow:hidden;max-height:90vh;display:flex;flex-direction:column}
-.lbhead{padding:18px 24px;background:linear-gradient(135deg,#FFD700,#FF8C00);color:#1a0a00;font-size:1.4rem;font-weight:900;text-align:center}
-.lblist{flex:1;overflow-y:auto;padding:14px}
-.lbitem{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;margin-bottom:6px;background:rgba(255,255,255,.04)}
+.lbbox{max-width:430px;width:100%;background:linear-gradient(135deg,rgba(18,28,48,.99),rgba(8,12,28,.99));border:2px solid rgba(255,215,0,.2);border-radius:20px;overflow:hidden;max-height:90vh;display:flex;flex-direction:column}
+.lbhead{padding:17px 22px;background:linear-gradient(135deg,#FFD700,#FF8C00);color:#1a0a00;font-size:1.35rem;font-weight:900;text-align:center}
+.lblist{flex:1;overflow-y:auto;padding:12px}
+.lbitem{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;margin-bottom:5px;background:rgba(255,255,255,.04)}
 .lbitem.gld{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3)}
 .lbitem.slv{background:rgba(192,192,192,.1);border:1px solid rgba(192,192,192,.3)}
 .lbitem.brz{background:rgba(205,127,50,.1);border:1px solid rgba(205,127,50,.3)}
-.lbrank{font-size:1.15rem;width:28px;text-align:center}.lbname{flex:1;font-weight:700;font-size:.9rem}.lbscore{font-weight:900;font-size:1rem;color:#FFD700}.lbmeta{font-size:.68rem;opacity:.5}
-.lbfoot{padding:12px 24px;border-top:1px solid rgba(255,255,255,.1);display:flex;gap:10px}
+.lbrank{font-size:1.1rem;width:26px;text-align:center}.lbname{flex:1;font-weight:700;font-size:.88rem}.lbscore{font-weight:900;font-size:.98rem;color:#FFD700}.lbmeta{font-size:.66rem;opacity:.5}
+.lbfoot{padding:11px 22px;border-top:1px solid rgba(255,255,255,.1);display:flex;gap:9px}
+/* ── MITOSIS ── */
 #mitosis-screen{background:#06060f;z-index:60}
-#mcanvas{border-radius:14px}
-.mitomsg{text-align:center;margin-top:14px}
-.mitomsg h2{font-size:1.7rem;font-weight:900;color:#9C27B0;margin-bottom:6px}
-.mitomsg p{opacity:.7;font-size:.9rem}
+#mcanvas{border-radius:13px}
+.mitomsg{text-align:center;margin-top:12px}
+.mitomsg h2{font-size:1.6rem;font-weight:900;color:#9C27B0;margin-bottom:5px}
+.mitomsg p{opacity:.7;font-size:.88rem}
+/* ── MUTE BUTTON ── */
+#mute-btn{position:fixed;bottom:14px;right:14px;width:38px;height:38px;border:none;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);font-size:1.1rem;cursor:pointer;z-index:150;transition:all .2s;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15)}
+#mute-btn:hover{background:rgba(255,255,255,.18);transform:scale(1.1)}
+/* ── MUTATION FLASH ── */
+#mut-flash{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(220,0,0,.35);opacity:0;pointer-events:none;z-index:88;transition:opacity .35s}
+/* ── MITOSIS BURST ── */
+#burst-overlay{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:20}
+.burst-score{font-size:2.8rem;font-weight:900;color:#FFD700;text-shadow:0 0 24px #FFD700,0 0 48px rgba(255,215,0,.5);animation:burstUp 1.6s ease forwards;opacity:0}
+@keyframes burstUp{0%{opacity:0;transform:scale(.5) translateY(0)}20%{opacity:1;transform:scale(1.2) translateY(-10px)}70%{opacity:1;transform:scale(1) translateY(-40px)}100%{opacity:0;transform:scale(.8) translateY(-80px)}}
+/* ── PARTICLES ── */
 #bgp{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0;overflow:hidden}
-.par{position:absolute;border-radius:50%;animation:pf linear infinite;opacity:.28}
-@keyframes pf{0%{transform:translateY(108vh);opacity:0}10%{opacity:.28}90%{opacity:.28}100%{transform:translateY(-8vh);opacity:0}}
+.par{position:absolute;border-radius:50%;animation:pf linear infinite;opacity:.22}
+@keyframes pf{0%{transform:translateY(108vh);opacity:0}10%{opacity:.22}90%{opacity:.22}100%{transform:translateY(-8vh);opacity:0}}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:8px}
 </style>
 </head>
 <body>
 <div id="bgp"></div>
+<div id="mut-flash"></div>
+<button id="mute-btn" onclick="toggleMute()" title="Bật/Tắt âm thanh">🔊</button>
 
 <!-- MENU -->
 <div id="menu-screen" class="screen">
   <div class="deco" style="top:10%;left:5%">🧬</div>
-  <div class="deco" style="top:15%;right:8%;animation-delay:1s">⚗️</div>
+  <div class="deco" style="top:14%;right:8%;animation-delay:1s">⚗️</div>
   <div class="deco" style="bottom:20%;left:10%;animation-delay:2s">🔬</div>
   <div class="deco" style="bottom:10%;right:5%;animation-delay:.5s">🧪</div>
-  <div class="deco" style="top:50%;left:3%;animation-delay:1.5s">🫧</div>
-  <div class="deco" style="top:40%;right:3%;animation-delay:2.5s">💊</div>
+  <div class="deco" style="top:48%;left:3%;animation-delay:1.5s">☠️</div>
+  <div class="deco" style="top:38%;right:3%;animation-delay:2.5s">🔧</div>
   <div class="menu-title">🧬 Tế Bào Phiêu Lưu Ký</div>
   <div class="menu-sub">Dẫn dắt tế bào qua Chu Kỳ Nguyên Phân!</div>
   <div class="chips">
@@ -136,9 +172,23 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
     <span class="chip c4">✨ Pha M</span>
   </div>
   <div class="menu-btns">
-    <button class="btn bg" onclick="startGame()">🎮 Bắt Đầu Chơi</button>
+    <button class="btn bg" onclick="goToNameScreen()">🎮 Bắt Đầu Chơi</button>
     <button class="btn bb" onclick="showSc('tutorial-screen')">📖 Hướng Dẫn</button>
     <button class="btn by" onclick="showSc('leaderboard-screen');psc='menu-screen'">🏆 Bảng Xếp Hạng</button>
+  </div>
+</div>
+
+<!-- NAME SCREEN -->
+<div id="name-screen" class="screen hidden">
+  <div class="nbox">
+    <div class="nicon">🧬</div>
+    <h2>Xin Chào, Nhà Khoa Học!</h2>
+    <p>Nhập tên của bạn để bắt đầu hành trình nguyên phân kỳ diệu</p>
+    <input type="text" id="ninput" class="ninp" placeholder="Tên của bạn..." maxlength="20" autocomplete="off"/>
+    <button class="btn bg" onclick="confirmName()" style="width:100%">🚀 Bắt Đầu!</button>
+    <div style="margin-top:12px">
+      <button class="btn bp" onclick="showSc('menu-screen')" style="padding:8px 22px;font-size:.82rem;text-transform:none">← Quay Lại</button>
+    </div>
   </div>
 </div>
 
@@ -148,27 +198,27 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
     <div class="thead">📖 Hướng Dẫn Chơi</div>
     <div class="ttabs">
       <button class="ttab active" onclick="switchT(this,'tgp')">🎮 Gameplay</button>
-      <button class="ttab" onclick="switchT(this,'tph')">🧬 Các Pha</button>
+      <button class="ttab" onclick="switchT(this,'tph')">🧬 Sinh Học</button>
       <button class="ttab" onclick="switchT(this,'tct')">⌨️ Điều Khiển</button>
       <button class="ttab" onclick="switchT(this,'ttp')">💡 Mẹo</button>
     </div>
     <div class="tbody">
       <div id="tgp" class="tpage active">
-        <p style="margin-bottom:12px;opacity:.83;line-height:1.65;font-size:.9rem">Bạn là một <strong>tế bào</strong> thực hiện hành trình <strong>nguyên phân</strong>! Điều khiển con rắn thu thập chất dinh dưỡng qua 4 pha. Hoàn thành cả 4 để nhân đôi điểm số!</p>
-        <div class="pcard g1"><h3>🌱 Pha G1 — Sinh Trưởng</h3><p>Thu thập <strong>Acid Amin (AA)</strong> và <strong>ATP</strong>. Ăn đủ 10 để chuyển pha.</p></div>
-        <div class="pcard s"><h3>🧬 Pha S — Nhân Đôi ADN</h3><p>Thu thập <strong>Nucleotide</strong> A, T, G, X đầy màu sắc. Ăn đủ 15. Rắn phát sáng!</p></div>
-        <div class="pcard g2"><h3>⭐ Pha G2 — Chuẩn Bị Phân Bào</h3><p>Thu thập <strong>Enzyme E</strong> hình ngôi sao. Rắn rất dài — hãy khéo léo!</p></div>
-        <div class="pcard m"><h3>🎉 Pha M — Nguyên Phân!</h3><p>Cutscene đặc biệt! Rắn tách đôi. Game reset với <strong>điểm x2</strong>!</p></div>
+        <p style="margin-bottom:11px;opacity:.83;line-height:1.6;font-size:.88rem">Bạn là một <strong>tế bào</strong> thực hiện hành trình <strong>nguyên phân</strong>! Điều khiển con rắn qua 4 pha sinh học. Chú ý: Tránh ☠️ đột biến gen!</p>
+        <div class="pcard g1"><h3>🌱 G1 — Sinh Trưởng</h3><p>Thu thập <strong>AA</strong> (Acid Amin) và <strong>ATP</strong>. Ăn đủ 10. Tránh 1 vật cản ☠️ đột biến!</p></div>
+        <div class="pcard s"><h3>🧬 S — Nhân Đôi ADN</h3><p>Thu thập <strong>Nucleotide</strong> A, T, G, X. Ăn đúng sợi khuôn để nhận <strong>điểm bonus</strong> + streak! Rắn phát sáng!</p></div>
+        <div class="pcard g2"><h3>⭐ G2 — Chuẩn Bị Phân Bào</h3><p>Thu thập <strong>Enzyme E</strong>. Tìm <strong>🔧 Enzyme Sửa ADN</strong> để loại bỏ đột biến! Ăn đủ 8.</p></div>
+        <div class="pcard m"><h3>🎉 M — Nguyên Phân!</h3><p>Cutscene đặc biệt! Điểm nhân đôi x2 cho mỗi chu kỳ hoàn thành!</p></div>
       </div>
       <div id="tph" class="tpage">
-        <p style="opacity:.7;font-size:.84rem;margin-bottom:12px;padding:9px;background:rgba(255,255,255,.05);border-radius:9px;line-height:1.6">🔬 <strong>Chu kỳ tế bào</strong>: Quá trình tế bào lớn lên và phân chia gồm 4 pha: G1, S, G2 và M (nguyên phân).</p>
-        <div class="pcard g1"><h3 style="color:#4CAF50">🌱 G1 (Gap 1)</h3><p>Tổng hợp protein, bào quan. Tích lũy ATP và Acid Amin. Giai đoạn dài nhất chu kỳ.</p></div>
-        <div class="pcard s"><h3 style="color:#2196F3">🧬 S (Synthesis)</h3><p>ADN tự nhân đôi. Nguyên tắc bổ sung: <strong>A=T</strong>, <strong>G≡X (Cytosine)</strong>. 1 ADN → 2 bản sao giống hệt!</p></div>
-        <div class="pcard g2"><h3 style="color:#FF9800">⭐ G2 (Gap 2)</h3><p>Tổng hợp Enzyme, protein thoi vô sắc. Kiểm tra tính toàn vẹn ADN trước khi phân bào.</p></div>
-        <div class="pcard m"><h3 style="color:#9C27B0">✨ M (Mitosis)</h3><p>4 kỳ: Đầu → Giữa → Sau → Cuối. NST tách đôi. Kết quả: <strong>2 tế bào con (2n)</strong> giống tế bào mẹ.</p></div>
+        <p style="opacity:.7;font-size:.82rem;margin-bottom:11px;padding:8px;background:rgba(255,255,255,.05);border-radius:9px;line-height:1.58">🔬 <strong>Chu kỳ tế bào</strong> là chuỗi sự kiện dẫn đến sự phân chia tế bào, gồm 4 pha chính.</p>
+        <div class="pcard g1"><h3 style="color:#4CAF50">🌱 G1 (Gap 1)</h3><p>Tổng hợp protein, bào quan. Tích lũy ATP và Acid Amin. Giai đoạn chiếm ~40% thời gian chu kỳ.</p></div>
+        <div class="pcard s"><h3 style="color:#2196F3">🧬 S (Synthesis)</h3><p>ADN tự nhân đôi. <strong>Nguyên tắc bổ sung:</strong> A=T (2 liên kết H), G≡X/Cytosine (3 liên kết H). 1 ADN → 2 bản sao giống hệt!</p></div>
+        <div class="pcard g2"><h3 style="color:#FF9800">⭐ G2 (Gap 2)</h3><p>Tổng hợp Enzyme, protein thoi vô sắc. Các <strong>điểm kiểm soát (Checkpoint)</strong> kiểm tra lỗi ADN trước khi phân bào.</p></div>
+        <div class="pcard m"><h3 style="color:#9C27B0">✨ M (Mitosis)</h3><p>4 kỳ: Đầu → Giữa → Sau → Cuối. NST tách đôi → <strong>2 tế bào con (2n)</strong> giống tế bào mẹ.</p></div>
       </div>
       <div id="tct" class="tpage">
-        <p style="opacity:.7;margin-bottom:12px;font-size:.88rem">Điều khiển con rắn bằng bàn phím, chuột hoặc vuốt:</p>
+        <p style="opacity:.7;margin-bottom:11px;font-size:.86rem">Nhiều cách điều khiển rắn:</p>
         <div class="cgrid">
           <div class="citem"><kbd>↑</kbd><kbd>W</kbd><br><small>Đi lên</small></div>
           <div class="citem"><kbd>↓</kbd><kbd>S</kbd><br><small>Đi xuống</small></div>
@@ -179,21 +229,20 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
           <div class="citem"><kbd>P</kbd><kbd>Esc</kbd><br><small>Tạm dừng</small></div>
           <div class="citem"><kbd>Space</kbd><br><small>Tiếp tục</small></div>
         </div>
-        <br><p style="opacity:.6;font-size:.82rem;text-align:center">🖱️ Click chuột vào hướng muốn đi · 👆 Vuốt cảm ứng</p>
+        <br><p style="opacity:.6;font-size:.8rem;text-align:center">🖱️ Click chuột vào hướng muốn đi<br>👆 Vuốt màn hình (Swipe) cảm ứng</p>
       </div>
       <div id="ttp" class="tpage">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="background:rgba(76,175,80,.1);border-left:4px solid #4CAF50;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">💡 <strong>Pha G1:</strong> Rắn ngắn, dễ di chuyển. Luyện phản xạ trước!</div>
-          <div style="background:rgba(33,150,243,.1);border-left:4px solid #2196F3;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">💡 <strong>Pha S:</strong> Tốc độ tăng nhẹ. Rắn phát sáng khi nhân đôi ADN!</div>
-          <div style="background:rgba(255,152,0,.1);border-left:4px solid #FF9800;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">⚠️ <strong>Pha G2:</strong> Rắn rất dài! Di chuyển vòng tròn để không bị kẹt.</div>
-          <div style="background:rgba(156,39,176,.1);border-left:4px solid #9C27B0;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">🎉 <strong>Pha M:</strong> Tận hưởng cutscene nguyên phân kỳ diệu!</div>
-          <div style="background:rgba(255,215,0,.1);border-left:4px solid #FFD700;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">🏆 <strong>Điểm số:</strong> Mỗi lần nguyên phân thành công → điểm x2!</div>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <div style="background:rgba(76,175,80,.1);border-left:4px solid #4CAF50;padding:10px;border-radius:7px;font-size:.83rem;line-height:1.6">💡 <strong>Pha S — Sợi Khuôn:</strong> Xem HUD bên trái. Ăn đúng nucleotide được chỉ → +bonus điểm & tăng streak!</div>
+          <div style="background:rgba(255,0,0,.1);border-left:4px solid #FF4444;padding:10px;border-radius:7px;font-size:.83rem;line-height:1.6">☠️ <strong>Tránh Đột Biến:</strong> Va phải ☠️ → mất 1/3 điểm! Tìm 🔧 Enzyme để xóa chúng.</div>
+          <div style="background:rgba(0,188,212,.1);border-left:4px solid #00BCD4;padding:10px;border-radius:7px;font-size:.83rem;line-height:1.6">🔧 <strong>Enzyme Sửa ADN:</strong> Xuất hiện ở Pha G2 sau khi ăn 2 enzyme. Ăn để xóa tất cả đột biến!</div>
+          <div style="background:rgba(255,215,0,.1);border-left:4px solid #FFD700;padding:10px;border-radius:7px;font-size:.83rem;line-height:1.6">🏆 <strong>Combo:</strong> Mỗi Nguyên Phân thành công → điểm x2. Bấm liên tiếp 2 phím nhanh không bị miss!</div>
         </div>
       </div>
     </div>
     <div class="tfoot">
-      <button class="btn bp" onclick="showSc('menu-screen')" style="padding:10px 24px;font-size:.9rem">← Quay Lại</button>
-      <button class="btn bg" onclick="startGame()" style="padding:10px 24px;font-size:.9rem">🎮 Chơi Ngay!</button>
+      <button class="btn bp" onclick="showSc('menu-screen')" style="padding:9px 22px;font-size:.88rem">← Quay Lại</button>
+      <button class="btn bg" onclick="goToNameScreen()" style="padding:9px 22px;font-size:.88rem">🎮 Chơi Ngay!</button>
     </div>
   </div>
 </div>
@@ -206,29 +255,40 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
       <div class="hpanel"><div class="hlbl">🔥 Hệ Số Nhân</div><div class="hval mx" id="mdsp">x1</div></div>
       <div class="phind g1" id="phind">
         <div class="pnm pg1" id="phnm">Pha G1</div>
-        <div class="pdesc" id="phds">🌱 Sinh Trưởng — Thu thập AA và ATP</div>
+        <div class="pdesc" id="phds">🌱 Sinh Trưởng</div>
       </div>
       <div class="prwrap">
         <div class="hlbl" id="prlbl">Tiến Trình</div>
         <div class="prtrack"><div class="prfill" id="prfill" style="width:0%"></div></div>
-        <div style="font-size:.69rem;opacity:.6;margin-top:4px" id="prtxt">0 / 10</div>
+        <div style="font-size:.66rem;opacity:.6;margin-top:3px" id="prtxt">0 / 10</div>
+      </div>
+      <!-- Template HUD (Phase S only) -->
+      <div id="tmpl-wrap" style="display:none;background:rgba(33,150,243,.08);border:1px solid rgba(33,150,243,.25);border-radius:11px;padding:8px 10px">
+        <div class="hlbl" style="color:#2196F3">🧬 Sợi Khuôn ADN</div>
+        <div class="tmpl-pairs" id="tmpl-pairs"></div>
+        <div class="streak-bar">Streak: <span class="streak-fire" id="streak-val">0</span> 🔥 | Bonus: +<span id="bonus-val">0</span>đ</div>
+      </div>
+      <!-- Mutation counter -->
+      <div id="mut-hud" style="display:none;background:rgba(255,0,0,.08);border:1px solid rgba(255,60,60,.25);border-radius:11px;padding:7px 10px">
+        <div class="hlbl" style="color:#FF4444">☠️ Đột Biến Còn Lại</div>
+        <div style="font-size:1.3rem;font-weight:900;color:#FF4444" id="mut-count">0</div>
       </div>
       <div class="cdiag">
-        <div class="hlbl" style="margin-bottom:7px">Chu Kỳ Tế Bào</div>
+        <div class="hlbl" style="margin-bottom:6px">Chu Kỳ Tế Bào</div>
         <svg class="csvg" viewBox="0 0 140 140">
           <circle cx="70" cy="70" r="55" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="8"/>
           <path id="ag1" d="M70,15 A55,55 0 0,1 125,70" fill="none" stroke="#4CAF50" stroke-width="8" stroke-linecap="round" opacity=".9"/>
           <path id="as"  d="M125,70 A55,55 0 0,1 70,125" fill="none" stroke="#2196F3" stroke-width="8" stroke-linecap="round" opacity=".2"/>
           <path id="ag2" d="M70,125 A55,55 0 0,1 15,70"  fill="none" stroke="#FF9800" stroke-width="8" stroke-linecap="round" opacity=".2"/>
           <path id="am"  d="M15,70 A55,55 0 0,1 70,15"   fill="none" stroke="#9C27B0" stroke-width="8" stroke-linecap="round" opacity=".2"/>
-          <text x="98" y="45" fill="#4CAF50" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">G1</text>
+          <text x="98" y="44" fill="#4CAF50" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">G1</text>
           <text x="110" y="90" fill="#2196F3" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">S</text>
           <text x="38" y="105" fill="#FF9800" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">G2</text>
           <text x="28" y="52" fill="#9C27B0" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">M</text>
           <circle id="cdot" cx="98" cy="40" r="5" fill="#4CAF50"/>
         </svg>
       </div>
-      <button class="btn bp" onclick="pauseGame()" style="padding:8px 14px;font-size:.82rem">⏸ Tạm Dừng (P)</button>
+      <button class="btn bp" onclick="pauseGame()" style="padding:7px 12px;font-size:.78rem">⏸ Tạm Dừng (P)</button>
     </div>
     <div class="swrap">
       <div class="souter">
@@ -245,7 +305,7 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
   <div class="mitomsg">
     <h2 id="mtitle">✨ Nguyên Phân Thành Công! ✨</h2>
     <p id="msub">Tế bào mẹ đã tách thành 2 tế bào con</p>
-    <p style="opacity:.42;margin-top:6px;font-size:.79rem">Đang tiếp tục...</p>
+    <p style="opacity:.4;margin-top:5px;font-size:.77rem">Đang tiếp tục...</p>
   </div>
 </div>
 
@@ -255,11 +315,14 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
     <div class="goic" id="goic">💀</div>
     <div class="gotl" id="gotl">Game Over!</div>
     <div class="goreason" id="goreason">Con rắn đã va chạm!</div>
-    <div class="scorebox"><div class="sl">Điểm Số Cuối Cùng</div><div class="sv" id="fscore">0</div></div>
-    <div style="font-size:.79rem;opacity:.6;margin-bottom:14px">Chu kỳ: <strong id="cdone">0</strong> · Pha: <strong id="preach">G1</strong></div>
-    <div class="namerow"><input type="text" class="nameinp" id="pname" placeholder="Nhập tên của bạn..." maxlength="20"><button class="btn bo" onclick="saveSc()" style="padding:10px 14px;font-size:.85rem">💾</button></div>
+    <div class="scorebox">
+      <div class="sl">Điểm Số Cuối Cùng</div>
+      <div class="sv" id="fscore">0</div>
+    </div>
+    <div style="font-size:.77rem;opacity:.6;margin-bottom:14px">Chu kỳ: <strong id="cdone">0</strong> · Pha: <strong id="preach">G1</strong></div>
+    <div style="font-size:.8rem;color:#4CAF50;margin-bottom:14px;opacity:.8" id="save-status">💾 Đã tự động lưu điểm!</div>
     <div class="gobtns">
-      <button class="btn bg" onclick="startGame()">🔄 Chơi Lại</button>
+      <button class="btn bg" onclick="goToNameScreen()">🔄 Chơi Lại</button>
       <button class="btn by" onclick="showSc('leaderboard-screen');psc='gameover-screen'">🏆 Bảng Xếp Hạng</button>
       <button class="btn bp" onclick="goMenu()">🏠 Về Menu</button>
     </div>
@@ -272,8 +335,8 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
     <div class="lbhead">🏆 Bảng Xếp Hạng</div>
     <div class="lblist" id="lblist"></div>
     <div class="lbfoot">
-      <button class="btn bp" onclick="goBackLb()" style="flex:1;padding:10px;font-size:.88rem">← Quay Lại</button>
-      <button class="btn bb" onclick="clrLb()" style="padding:10px 14px;font-size:.78rem">🗑️ Xóa</button>
+      <button class="btn bp" onclick="goBackLb()" style="flex:1;padding:9px;font-size:.86rem">← Quay Lại</button>
+      <button class="btn bb" onclick="clrLb()" style="padding:9px 13px;font-size:.76rem">🗑️ Xóa</button>
     </div>
   </div>
 </div>
@@ -281,14 +344,14 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
 <!-- TOAST -->
 <div id="toast"><div class="tico" id="tico">ℹ️</div><div class="ttitle" id="ttitle">Thông báo</div><div class="tmsg" id="tmsg">...</div></div>
 
-<!-- PHASE OVERLAY -->
+<!-- PHASE OVERLAY (1s, small, transparent) -->
 <div id="pov">
   <div class="tcard" id="tcard">
     <div class="tric" id="tric">🌱</div>
     <div class="trtl" id="trtl">Pha G1</div>
     <div class="trsb" id="trsb">Tế bào bắt đầu sinh trưởng!</div>
     <div class="trbio" id="trbio"></div>
-    <div class="trcd" id="trcd">3</div>
+    <div class="trcd" id="trcd">1</div>
   </div>
 </div>
 
@@ -298,97 +361,183 @@ body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-con
     <h2>⏸ Tạm Dừng</h2>
     <div class="pausebtns">
       <button class="btn bg" onclick="resumeGame()">▶ Tiếp Tục</button>
-      <button class="btn bb" onclick="showSc('tutorial-screen');paused=false">📖 Hướng Dẫn</button>
+      <button class="btn bb" onclick="toggleMute()" id="pause-mute-btn">🔊 Âm Thanh: BẬT</button>
       <button class="btn bp" onclick="goMenu()">🏠 Về Menu</button>
     </div>
   </div>
 </div>
 
 <script>
+// ── CONSTANTS ──
 var CS=24,CW=492,GN=Math.floor(CW/CS),CR=CW/2,CC={x:CW/2,y:CW/2};
 var PHS=['G1','S','G2','M'];
 var PC={
   G1:{
     clr:'#4CAF50',gl:'rgba(76,175,80,.3)',nm:'Pha G1',em:'🌱',
-    ds:'🌱 Sinh Trưởng — Thu thập AA và ATP',
-    tg:10,sp:188,fd:['AA','ATP'],fc:{AA:'#FF6B6B',ATP:'#FFD700'},pl:'Dinh Dưỡng',
+    ds:'🌱 Sinh Trưởng — AA & ATP',
+    tg:10,sp:192,fd:['AA','ATP'],fc:{AA:'#FF6B6B',ATP:'#FFD700'},pl:'Dinh Dưỡng',
     ai:'ag1',dt:{cx:98,cy:40},
-    bio:'Trong Pha G1, tế bào tổng hợp protein, tăng kích thước và tích lũy ATP để chuẩn bị nhân đôi ADN.',
-    ttl:'🌱 Bước vào Pha G1!',tsb:'Tế bào cần lớn lên. Hãy thu thập Acid Amin và ATP!'
+    bio:'Pha G1: Tế bào tổng hợp protein, tăng kích thước và tích lũy ATP chuẩn bị cho nhân đôi ADN. Giai đoạn quan trọng nhất!',
+    ttl:'🌱 Pha G1 — Sinh Trưởng!',tsb:'Thu thập Acid Amin và ATP! Cẩn thận đột biến ☠️!'
   },
   S:{
     clr:'#2196F3',gl:'rgba(33,150,243,.3)',nm:'Pha S',em:'🧬',
-    ds:'🧬 Nhân Đôi ADN — Thu thập Nucleotide',
-    tg:15,sp:158,fd:['A','T','G','X'],fc:{A:'#FF4757',T:'#2ed573',G:'#1e90ff',X:'#ffa502'},pl:'Nucleotide',
+    ds:'🧬 Nhân Đôi ADN — Nucleotide',
+    tg:15,sp:162,fd:['A','T','G','X'],fc:{A:'#FF4757',T:'#2ed573',G:'#1e90ff',X:'#ffa502'},pl:'Nucleotide',
     ai:'as',dt:{cx:110,cy:90},
-    bio:'Pha S: ADN tự nhân đôi theo nguyên tắc bổ sung và bán bảo toàn. A=T, G≡X (Cytosine). 1 ADN → 2 bản sao giống hệt!',
-    ttl:'🧬 Bước vào Pha S!',tsb:'Thời gian nhân đôi ADN! Thu thập Nucleotide A, T, G, X!'
+    bio:'Pha S: ADN nhân đôi theo nguyên tắc bổ sung (A=T, G≡X). Ăn đúng Nucleotide theo sợi khuôn để nhận điểm thưởng!',
+    ttl:'🧬 Pha S — Nhân Đôi ADN!',tsb:'Xem HUD sợi khuôn! Ăn đúng nucleotide để nhận streak bonus!'
   },
   G2:{
     clr:'#FF9800',gl:'rgba(255,152,0,.3)',nm:'Pha G2',em:'⭐',
-    ds:'⭐ Chuẩn Bị Phân Bào — Thu thập Enzyme',
-    tg:8,sp:132,fd:['E'],fc:{E:'#FFD700'},pl:'Enzyme',
+    ds:'⭐ Chuẩn Bị Phân Bào — Enzyme',
+    tg:8,sp:138,fd:['E'],fc:{E:'#FFD700'},pl:'Enzyme',
     ai:'ag2',dt:{cx:38,cy:105},
-    bio:'Pha G2: Tổng hợp Enzyme và protein thoi vô sắc. Kiểm tra ADN đã sao chép chính xác chưa.',
-    ttl:'⭐ Bước vào Pha G2!',tsb:'Rắn đã rất dài! Hãy khéo léo thu thập Enzyme!'
+    bio:'Pha G2: Checkpoint kiểm tra ADN. Tổng hợp protein thoi vô sắc. Enzyme sửa lỗi ADN rất quan trọng ở giai đoạn này!',
+    ttl:'⭐ Pha G2 — Chuẩn Bị!',tsb:'Rắn dài! Tìm 🔧 Enzyme sửa ADN để xóa đột biến!'
   },
   M:{
     clr:'#9C27B0',gl:'rgba(156,39,176,.3)',nm:'Pha M',em:'✨',
-    ds:'✨ Nguyên Phân — Tế bào đang tách đôi!',
-    tg:0,sp:112,fd:[],fc:{},pl:'Nguyên Phân',
+    ds:'✨ Nguyên Phân!',
+    tg:0,sp:116,fd:[],fc:{},pl:'Nguyên Phân',
     ai:'am',dt:{cx:28,cy:52},
-    bio:'Pha M: 4 kỳ — Đầu, Giữa, Sau, Cuối. NST tách thành 2 bộ giống nhau. Tế bào thắt eo → 2 tế bào con (2n).',
-    ttl:'✨ NGUYÊN PHÂN!',tsb:'Tế bào bắt đầu phân chia!'
+    bio:'Pha M (Mitosis): 4 kỳ — Đầu, Giữa, Sau, Cuối. NST tách thành 2 bộ giống hệt → 2 tế bào con (2n)!',
+    ttl:'✨ NGUYÊN PHÂN!',tsb:'Tế bào bắt đầu phân chia thành 2!'
   }
 };
 
-// AUDIO
+// ── PER-PHASE MUSIC ──
+var PHASE_MUSIC = {
+  G1: {
+    notes:[261,294,330,392,440,392,330,294,349,330,261,294,330,392,523,392],
+    tempo:580, wave:'sine', vol:0.030, dur:0.26
+  },
+  S: {
+    notes:[294,370,440,494,523,494,440,415,392,349,370,330,294,330,392,440],
+    tempo:360, wave:'triangle', vol:0.034, dur:0.20
+  },
+  G2: {
+    notes:[370,330,311,370,311,294,277,311,349,330,370,415,370,349,311,330],
+    tempo:255, wave:'sawtooth', vol:0.022, dur:0.15
+  }
+};
+var bgNi=0,bgI=null,muted=false,curPhMusic='';
+
+// ── AUDIO ENGINE ──
 var ac=null;
 function gac(){if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();return ac;}
-function tn(f,t,d,v,dl){t=t||'sine';d=d||.15;v=v||.3;dl=dl||0;
-  try{var c=gac(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);
-  o.type=t;o.frequency.setValueAtTime(f,c.currentTime+dl);
-  g.gain.setValueAtTime(v,c.currentTime+dl);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+dl+d);
-  o.start(c.currentTime+dl);o.stop(c.currentTime+dl+d+.05);}catch(e){}}
-function sfxE(){tn(440,'sine',.1,.42);tn(660,'sine',.1,.32,.06);}
-function sfxD(){tn(200,'sawtooth',.4,.5);tn(150,'sawtooth',.4,.4,.22);tn(100,'sawtooth',.55,.5,.42);}
-function sfxP(){[0,.1,.2,.3,.4].forEach(function(d,i){tn(440+i*110,'sine',.22,.3,d);});}
-function sfxM(){for(var i=0;i<8;i++)tn(330+i*58,'sine',.28,.3,i*.11);}
-var bgI=null,bgN=[261,294,329,349,392,440],bgNi=0;
-function bgS(){if(bgI)return;bgI=setInterval(function(){if(!paused&&running)tn(bgN[bgNi++%bgN.length],'triangle',.28,.04);},520);}
-function bgX(){if(bgI){clearInterval(bgI);bgI=null;}}
+function tn(f,t,d,v,dl){
+  t=t||'sine';d=d||.15;v=v||.28;dl=dl||0;
+  if(muted)return;
+  try{
+    var ctx_=gac(),o=ctx_.createOscillator(),g=ctx_.createGain();
+    o.connect(g);g.connect(ctx_.destination);
+    o.type=t;o.frequency.setValueAtTime(f,ctx_.currentTime+dl);
+    g.gain.setValueAtTime(v,ctx_.currentTime+dl);
+    g.gain.exponentialRampToValueAtTime(.001,ctx_.currentTime+dl+d);
+    o.start(ctx_.currentTime+dl);o.stop(ctx_.currentTime+dl+d+.05);
+  }catch(e){}
+}
+function sfxE(){tn(440,'sine',.09,.38);tn(660,'sine',.09,.28,.07);}
+function sfxD(){tn(180,'sawtooth',.42,.45);tn(140,'sawtooth',.42,.38,.24);tn(100,'sawtooth',.52,.45,.44);}
+function sfxP(){[0,.09,.18,.28,.38].forEach(function(d,i){tn(440+i*120,'sine',.22,.28,d);});}
+function sfxM(){for(var i=0;i<10;i++)tn(330+i*62,'sine',.3,.32,i*.1);}
+function sfxBonus(streak){var f=550+Math.min(streak,6)*60;tn(f,'sine',.12,.42);tn(f*1.5,'sine',.1,.28,.08);}
+function sfxMutHit(){tn(120,'sawtooth',.35,.55);tn(90,'sawtooth',.35,.45,.18);}
 
-// STATE
+function bgPhase(ph){
+  bgX();
+  if(muted)return;
+  var m=PHASE_MUSIC[ph];
+  if(!m)return;
+  curPhMusic=ph;bgNi=0;
+  bgI=setInterval(function(){
+    if(muted||!running&&ph!=='M'){return;}
+    var m2=PHASE_MUSIC[curPhMusic];
+    if(!m2)return;
+    tn(m2.notes[bgNi%m2.notes.length],m2.wave,m2.dur,m2.vol);
+    bgNi++;
+  },m.tempo);
+}
+function bgS(){bgPhase(PHS[pi]);}
+function bgX(){if(bgI){clearInterval(bgI);bgI=null;curPhMusic='';}}
+
+function toggleMute(){
+  muted=!muted;
+  var btn=document.getElementById('mute-btn');
+  var pbtn=document.getElementById('pause-mute-btn');
+  if(muted){bgX();if(btn)btn.textContent='🔇';if(pbtn)pbtn.textContent='🔇 Âm Thanh: TẮT';}
+  else{if(btn)btn.textContent='🔊';if(pbtn)pbtn.textContent='🔊 Âm Thanh: BẬT';if(running&&!paused)bgS();}
+}
+
+// ── STATE ──
 var running=false,paused=false,loopT=null;
-var snake=[],dir={x:1,y:0},nd={x:1,y:0};
-var foods=[],score=0,mult=1,pi=0,prg=0,cyc=0,spd=188;
+var snake=[],dir={x:1,y:0},nd={x:1,y:0},inputQueue=[];
+var foods=[],score=0,mult=1,pi=0,prg=0,cyc=0,spd=192;
 var glw=false,glwT=0,frm=0,psc='menu-screen';
+var playerName='Người Chơi Ẩn Danh';
+// Mutation system
+var mutations=[],repairSpawned=false;
+// Phase S template system
+var sComplement={A:'T',T:'A',G:'X',X:'G'};
+var sNucColor={A:'#FF4757',T:'#2ed573',G:'#1e90ff',X:'#ffa502'};
+var sTemplate=[],sTemplateIdx=0,sStreak=0,sBonusTotal=0;
+
 var cv=document.getElementById('gc'),ctx=cv.getContext('2d');
 
+// ── SCREEN MANAGEMENT ──
 function showSc(id){
   document.querySelectorAll('.screen').forEach(function(s){s.classList.add('hidden');});
   document.getElementById(id).classList.remove('hidden');
   if(id==='leaderboard-screen')rnLb();
 }
 function goBackLb(){showSc(psc||'menu-screen');}
-function goMenu(){running=false;paused=false;bgX();document.getElementById('pauseov').classList.remove('show');showSc('menu-screen');}
+function goMenu(){
+  running=false;paused=false;bgX();
+  document.getElementById('pauseov').classList.remove('show');
+  showSc('menu-screen');
+}
 function switchT(btn,id){
   document.querySelectorAll('.ttab').forEach(function(t){t.classList.remove('active');});
   document.querySelectorAll('.tpage').forEach(function(p){p.classList.remove('active');});
   btn.classList.add('active');document.getElementById(id).classList.add('active');
 }
 
+// ── NAME SCREEN ──
+function goToNameScreen(){
+  showSc('name-screen');
+  setTimeout(function(){
+    var el=document.getElementById('ninput');
+    if(el)el.focus();
+  },200);
+}
+function confirmName(){
+  var el=document.getElementById('ninput');
+  var nm=(el&&el.value.trim())||'';
+  playerName=nm||'Người Chơi Ẩn Danh';
+  startGame();
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var el=document.getElementById('ninput');
+  if(el)el.addEventListener('keydown',function(e){if(e.key==='Enter')confirmName();});
+});
+
+// ── START GAME ──
 function startGame(){
   score=0;mult=1;pi=0;prg=0;cyc=0;
-  dir={x:1,y:0};nd={x:1,y:0};frm=0;glw=false;foods=[];paused=false;
+  dir={x:1,y:0};nd={x:1,y:0};inputQueue=[];
+  frm=0;glw=false;foods=[];mutations=[];paused=false;
+  repairSpawned=false;sTemplate=[];sTemplateIdx=0;sStreak=0;sBonusTotal=0;
   var sx=Math.floor(GN/2),sy=Math.floor(GN/2);
   snake=[{x:sx,y:sy},{x:sx-1,y:sy},{x:sx-2,y:sy}];
   spd=PC[PHS[0]].sp;
-  showSc('game-screen');updHUD();spF();spF();
-  running=true;bgS();
+  showSc('game-screen');updHUD();
+  spF();spF();spawnMutations('G1');
+  running=true;bgPhase('G1');
   shPT('G1',function(){loop();});
 }
 
+// ── GAME LOOP ──
 function loop(){
   if(!running)return;
   if(paused){loopT=setTimeout(loop,50);return;}
@@ -396,22 +545,75 @@ function loop(){
   loopT=setTimeout(loop,spd);
 }
 
+// ── UPDATE ──
 function upd(){
   if(!running||paused)return;
+  // Process input queue
+  while(inputQueue.length>0){
+    var candidate=inputQueue.shift();
+    if(!(candidate.x===-dir.x&&candidate.y===-dir.y)){nd=candidate;break;}
+  }
   dir={x:nd.x,y:nd.y};
   var h={x:snake[0].x+dir.x,y:snake[0].y+dir.y};
+  // Boundary check
   var ddx=(h.x*CS+CS/2)-CC.x,ddy=(h.y*CS+CS/2)-CC.y;
   if(Math.sqrt(ddx*ddx+ddy*ddy)>CR-CS){endG('Đâm vào thành kính hiển vi! 🔬');return;}
+  // Self-collision
   for(var i=1;i<snake.length-2;i++){
     if(snake[i].x===h.x&&snake[i].y===h.y){endG('Con rắn tự cắn vào đuôi! 🐍');return;}
   }
   snake.unshift(h);
+  // Mutation collision check
+  for(var k=mutations.length-1;k>=0;k--){
+    if(mutations[k].x===h.x&&mutations[k].y===h.y){
+      var penalty=Math.floor(score/3);
+      score=Math.max(0,score-penalty);
+      mutations.splice(k,1);
+      sfxMutHit();
+      shT('☠️','Đột Biến Gen!','Mất '+penalty.toLocaleString('vi-VN')+' điểm!','#FF4444',2200);
+      mutFlash();
+      updHUD();
+    }
+  }
+  // Food collision
   var ate=false;
   for(var j=foods.length-1;j>=0;j--){
     if(foods[j].x===h.x&&foods[j].y===h.y){
-      ate=true;var f=foods.splice(j,1)[0];
-      score+=10*mult;prg++;sfxE();updHUD();
-      if(PHS[pi]==='S'){glw=true;glwT=6;shT('🧬','Nucleotide '+f.t,'Đã thêm '+f.t+' vào chuỗi ADN!',PC.S.clr,1200);}
+      ate=true;
+      var f=foods.splice(j,1)[0];
+      score+=10*mult;prg++;sfxE();
+      // Repair enzyme check
+      if(f.t==='R'){
+        var cleared=mutations.length;
+        mutations=[];
+        repairSpawned=true;
+        shT('🔧','ADN Được Sửa Chữa!','Đã loại bỏ '+cleared+' đột biến!','#00BCD4',2400);
+        updHUD();
+      }
+      // Phase S template check
+      if(PHS[pi]==='S'){
+        glw=true;glwT=6;
+        var needed=sComplement[sTemplate[sTemplateIdx%sTemplate.length]];
+        if(f.t===needed){
+          sStreak++;
+          var bonusAmt=5*mult*Math.min(sStreak,5);
+          score+=bonusAmt;sBonusTotal+=bonusAmt;
+          sfxBonus(sStreak);
+          shT('✅','Khớp ADN! Streak '+sStreak+'x','+'+bonusAmt+' điểm bonus!','#2196F3',1000);
+        } else {
+          if(sStreak>0)shT('❌','Mất Streak!','Ăn sai nucleotide — cần '+needed,'#FF9800',900);
+          sStreak=0;
+        }
+        sTemplateIdx++;
+        updTemplate();
+      }
+      updHUD();
+      // Spawn repair enzyme in G2 if conditions met
+      if(PHS[pi]==='G2'&&prg>=2&&!repairSpawned&&mutations.length>0){
+        repairSpawned=true;
+        var rpos=randFreePos();
+        if(rpos)foods.push({x:rpos.x,y:rpos.y,t:'R',c:'#00BCD4'});
+      }
       spF();chkP();break;
     }
   }
@@ -420,12 +622,13 @@ function upd(){
   if(glwT===0)glw=false;
 }
 
+// ── RENDER ──
 function rnd(){
   ctx.clearRect(0,0,CW,CW);
   var bg=ctx.createRadialGradient(CC.x,CC.y,0,CC.x,CC.y,CR);
   bg.addColorStop(0,'#0f1e38');bg.addColorStop(1,'#060d1c');
   ctx.fillStyle=bg;ctx.beginPath();ctx.arc(CC.x,CC.y,CR,0,Math.PI*2);ctx.fill();
-  ctx.fillStyle='rgba(255,255,255,.022)';
+  ctx.fillStyle='rgba(255,255,255,.02)';
   for(var x=0;x<GN;x++){for(var y=0;y<GN;y++){
     var cx=x*CS+CS/2,cy=y*CS+CS/2;
     if(Math.sqrt((cx-CC.x)*(cx-CC.x)+(cy-CC.y)*(cy-CC.y))<CR-3){
@@ -434,8 +637,9 @@ function rnd(){
   }}
   var cfg=PC[PHS[pi]];
   var ag=ctx.createRadialGradient(CC.x,CC.y,0,CC.x,CC.y,CR);
-  ag.addColorStop(0,'transparent');ag.addColorStop(.7,'transparent');ag.addColorStop(1,cfg.gl);
+  ag.addColorStop(0,'rgba(0,0,0,0)');ag.addColorStop(.65,'rgba(0,0,0,0)');ag.addColorStop(1,cfg.gl);
   ctx.fillStyle=ag;ctx.beginPath();ctx.arc(CC.x,CC.y,CR,0,Math.PI*2);ctx.fill();
+  drMut();
   foods.forEach(function(f){drF(f);});
   drS();
 }
@@ -443,23 +647,47 @@ function rnd(){
 function drF(f){
   var x=f.x*CS+CS/2,y=f.y*CS+CS/2,r=CS*.43,ph=PHS[pi];
   ctx.save();ctx.translate(x,y);
-  if(ph==='G2'){
-    var rot=(frm*.05)%(Math.PI*2);ctx.rotate(rot);
-    drStar(ctx,0,0,5,r,r*.48);
+  if(f.t==='R'){
+    // Repair enzyme special rendering
+    var pulse=1+Math.sin(frm*.1)*.12;ctx.scale(pulse,pulse);
+    ctx.shadowColor='#00BCD4';ctx.shadowBlur=20;
+    ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fillStyle='rgba(0,188,212,.75)';ctx.fill();
+    ctx.shadowBlur=0;ctx.fillStyle='#fff';
+    ctx.font='bold '+(CS*.5)+'px Nunito';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('🔧',0,1);
+  } else if(ph==='G2'){
+    var rot=(frm*.055)%(Math.PI*2);ctx.rotate(rot);
+    drStar(ctx,0,0,5,r,r*.46);
     ctx.fillStyle='#FFD700';ctx.shadowColor='#FFD700';ctx.shadowBlur=18;ctx.fill();
     ctx.shadowBlur=0;ctx.rotate(-rot);
-    ctx.fillStyle='#1a0a00';ctx.font='bold '+(CS*.38)+'px Nunito';
+    ctx.fillStyle='#1a0a00';ctx.font='bold '+(CS*.36)+'px Nunito';
     ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('E',0,0);
-  }else{
+  } else {
     var pl=1+Math.sin(frm*.14+f.x+f.y)*.08;ctx.scale(pl,pl);
     ctx.shadowColor=f.c;ctx.shadowBlur=13;
     ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fillStyle=f.c+'CC';ctx.fill();
-    ctx.beginPath();ctx.arc(-r*.27,-r*.27,r*.3,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.36)';ctx.fill();
+    ctx.beginPath();ctx.arc(-r*.27,-r*.27,r*.3,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.35)';ctx.fill();
     ctx.shadowBlur=0;ctx.fillStyle='#fff';
-    ctx.font='bold '+(ph==='G1'?CS*.33:CS*.48)+'px Nunito';
+    ctx.font='bold '+(ph==='G1'?CS*.32:CS*.46)+'px Nunito';
     ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(f.t,0,0);
   }
   ctx.restore();
+}
+
+function drMut(){
+  mutations.forEach(function(m){
+    var x=m.x*CS+CS/2,y=m.y*CS+CS/2,r=CS*.42;
+    var pulse=1+Math.sin(frm*.09)*.12;
+    ctx.save();ctx.translate(x,y);ctx.scale(pulse,pulse);
+    ctx.shadowColor='#FF0000';ctx.shadowBlur=22;
+    ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);
+    ctx.fillStyle='rgba(160,0,0,0.82)';ctx.fill();
+    ctx.shadowBlur=0;
+    ctx.font='bold '+(CS*.48)+'px Nunito';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('☠',0,2);
+    ctx.restore();
+  });
 }
 
 function drStar(c,cx,cy,sp,ou,i2){
@@ -478,7 +706,7 @@ function drS(){
     var seg=snake[si],x=seg.x*CS,y=seg.y*CS,cx=x+CS/2,cy=y+CS/2;
     var p=si/snake.length,isH=(si===0);
     var al=1-p*.42;
-    if(glw&&PHS[pi]==='S'){al*=(Math.sin(frm*.28+si*.5)>0?1.18:.78);ctx.shadowColor='#2196F3';ctx.shadowBlur=22;}
+    if(glw&&PHS[pi]==='S'){al*=(Math.sin(frm*.28+si*.5)>0?1.18:.78);ctx.shadowColor='#2196F3';ctx.shadowBlur=24;}
     ctx.save();ctx.globalAlpha=Math.max(0,Math.min(1,al));
     var r=isH?CS*.46:Math.max(CS*.35-p*2,3);
     var g;
@@ -505,32 +733,68 @@ function drS(){
   ctx.shadowBlur=0;
 }
 
-function spF(){
-  var ph=PHS[pi],cfg=PC[ph];
-  if(!cfg.fd.length)return;
-  var t=cfg.fd[Math.floor(Math.random()*cfg.fd.length)],c=cfg.fc[t];
+// ── HELPER: Random free position ──
+function randFreePos(){
   var pos=null,tries=0;
-  while(!pos&&tries<100){
+  while(!pos&&tries<120){
     var gx=Math.floor(Math.random()*GN),gy=Math.floor(Math.random()*GN);
     var cx=gx*CS+CS/2,cy=gy*CS+CS/2;
     var onS=false;for(var i=0;i<snake.length;i++){if(snake[i].x===gx&&snake[i].y===gy){onS=true;break;}}
     var onF=false;for(var i=0;i<foods.length;i++){if(foods[i].x===gx&&foods[i].y===gy){onF=true;break;}}
-    if(Math.sqrt((cx-CC.x)*(cx-CC.x)+(cy-CC.y)*(cy-CC.y))<CR-CS*1.5&&!onS&&!onF)pos={x:gx,y:gy};
+    var onM=false;for(var i=0;i<mutations.length;i++){if(mutations[i].x===gx&&mutations[i].y===gy){onM=true;break;}}
+    if(Math.sqrt((cx-CC.x)*(cx-CC.x)+(cy-CC.y)*(cy-CC.y))<CR-CS*1.6&&!onS&&!onF&&!onM)pos={x:gx,y:gy};
     tries++;
   }
+  return pos;
+}
+
+// ── SPAWN FOOD ──
+function spF(){
+  var ph=PHS[pi],cfg=PC[ph];
+  if(!cfg.fd.length)return;
+  var t=cfg.fd[Math.floor(Math.random()*cfg.fd.length)],c=cfg.fc[t];
+  var pos=randFreePos();
   if(pos)foods.push({x:pos.x,y:pos.y,t:t,c:c});
 }
 
+// ── SPAWN MUTATIONS ──
+function spawnMutations(ph){
+  mutations=[];repairSpawned=false;
+  var count;
+  if(ph==='G1')count=1;
+  else if(ph==='S')count=(cyc>0?2:1);
+  else if(ph==='G2')count=2;
+  else count=0;
+  for(var i=0;i<count;i++){
+    var pos=randFreePos();
+    if(pos)mutations.push({x:pos.x,y:pos.y});
+  }
+}
+
+// ── PHASE S TEMPLATE INIT ──
+function initTemplate(){
+  sTemplate=[];sTemplateIdx=0;sStreak=0;sBonusTotal=0;
+  var opts=['A','T','G','X'];
+  for(var i=0;i<20;i++)sTemplate.push(opts[Math.floor(Math.random()*4)]);
+}
+
+// ── PHASE LOGIC ──
 function chkP(){if(prg>=PC[PHS[pi]].tg)advP();}
 function advP(){
   pi++;
   if(pi>=PHS.length){pi=PHS.length-1;trigM();return;}
-  prg=0;foods=[];spd=PC[PHS[pi]].sp;sfxP();updHUD();
-  shPT(PHS[pi],function(){spF();spF();loop();});
+  prg=0;foods=[];spd=PC[PHS[pi]].sp;sfxP();
+  spawnMutations(PHS[pi]);
+  if(PHS[pi]==='S')initTemplate();
+  bgX();
+  updHUD();
+  shPT(PHS[pi],function(){spF();spF();bgPhase(PHS[pi]);loop();});
 }
 
+// ── PHASE TRANSITION (1s, smaller, transparent) ──
 var ptCb=null;
 function shPT(ph,cb){
+  if(loopT){clearTimeout(loopT);loopT=null;}
   running=false;ptCb=cb;
   var cfg=PC[ph],ov=document.getElementById('pov'),card=document.getElementById('tcard');
   card.style.borderColor=cfg.clr;
@@ -541,7 +805,7 @@ function shPT(ph,cb){
   document.getElementById('trbio').style.borderLeftColor=cfg.clr;
   var cd=document.getElementById('trcd');cd.style.color=cfg.clr;
   ov.classList.add('show');
-  var n=3;cd.textContent=n;
+  var n=1;cd.textContent=n;
   var tm=setInterval(function(){
     n--;
     if(n<=0){clearInterval(tm);ov.classList.remove('show');running=true;if(ptCb)ptCb();}
@@ -549,62 +813,106 @@ function shPT(ph,cb){
   },1000);
 }
 
+// ── MITOSIS CUTSCENE (ENHANCED) ──
 function trigM(){
   bgX();sfxM();running=false;showSc('mitosis-screen');
   var mc=document.getElementById('mcanvas'),mctx=mc.getContext('2d');
-  cyc++;mult*=2;score+=500*(mult/2);
+  cyc++;
+  var bonusPts=800*mult;
+  mult*=2;score+=bonusPts;
   document.getElementById('mtitle').textContent='✨ Nguyên Phân Thành Công! ✨';
-  document.getElementById('msub').textContent='Chu kỳ lần '+cyc+' hoàn thành! Hệ số điểm: x'+mult+'!';
+  document.getElementById('msub').textContent='Chu kỳ lần '+cyc+' hoàn thành! Hệ số mới: x'+mult+' | +'+bonusPts.toLocaleString('vi-VN')+' điểm thưởng!';
   var t=0,snap=snake.slice();
+  // Show burst overlay
+  showBurstScore(bonusPts);
   function rm(){
     mctx.clearRect(0,0,560,360);
     var mb=mctx.createLinearGradient(0,0,560,360);mb.addColorStop(0,'#08001a');mb.addColorStop(1,'#18003a');
     mctx.fillStyle=mb;mctx.fillRect(0,0,560,360);
-    for(var i=0;i<30;i++){
-      var ang=(i/30)*Math.PI*2+t*.022,rr=72+Math.sin(t*.055+i)*26;
-      var px=280+Math.cos(ang)*rr*(1+t*.008),py=180+Math.sin(ang)*rr*.5;
-      var al=Math.max(0,1-t*.009);
-      mctx.beginPath();mctx.arc(px,py,2.4,0,Math.PI*2);
-      mctx.fillStyle='hsla('+(270+i*6)+',80%,72%,'+al+')';mctx.fill();
+    // Ripple effect
+    if(t<60){
+      for(var rr=1;rr<=3;rr++){
+        var rRad=t*rr*1.8;
+        mctx.beginPath();mctx.arc(280,180,rRad,0,Math.PI*2);
+        mctx.strokeStyle='rgba(156,39,176,'+(Math.max(0,1-rRad/220)*.6)+')';
+        mctx.lineWidth=3;mctx.stroke();
+      }
     }
-    var sep=Math.min(t*2.5,120),hl=Math.floor(snap.length/2);
+    // Chromosome particles
+    for(var i=0;i<36;i++){
+      var ang=(i/36)*Math.PI*2+t*.02,rr2=80+Math.sin(t*.05+i)*30;
+      var px=280+Math.cos(ang)*rr2*(1+t*.006),py=180+Math.sin(ang)*rr2*.5;
+      var al=Math.max(0,1-t*.0085);
+      mctx.beginPath();mctx.arc(px,py,2.6,0,Math.PI*2);
+      mctx.fillStyle='hsla('+(270+i*5)+',82%,74%,'+al+')';mctx.fill();
+    }
+    // Splitting snakes
+    var sep=Math.min(t*2.8,130),hl=Math.floor(snap.length/2);
     for(var k=0;k<2;k++){
       var ox=k===0?-sep:sep;
       for(var i=0;i<hl;i++){
-        var pr=i/hl,al2=(1-pr*.5)*Math.max(0,1-(t-42)*.013);
-        var r2=Math.max(9-pr*4,3),x2=280+ox+(i-hl/2)*11,y2=180+Math.sin(i*.5+t*.05)*8;
+        var pr=i/hl,al2=(1-pr*.5)*Math.max(0,1-(t-40)*.014);
+        var r2=Math.max(10-pr*4.5,3),x2=280+ox+(i-hl/2)*12,y2=180+Math.sin(i*.55+t*.06)*9;
         mctx.globalAlpha=al2;mctx.beginPath();mctx.arc(x2,y2,r2,0,Math.PI*2);
-        var hue=k===0?130:270,g2=mctx.createRadialGradient(x2,y2,0,x2,y2,r2);
-        g2.addColorStop(0,'hsl('+hue+',82%,72%)');g2.addColorStop(1,'hsl('+hue+',62%,42%)');
-        mctx.fillStyle=g2;mctx.shadowColor='hsl('+hue+',82%,62%)';mctx.shadowBlur=14;mctx.fill();
+        var hue=k===0?130:270;
+        var g2=mctx.createRadialGradient(x2,y2,0,x2,y2,r2);
+        g2.addColorStop(0,'hsl('+hue+',85%,75%)');g2.addColorStop(1,'hsl('+hue+',65%,45%)');
+        mctx.fillStyle=g2;mctx.shadowColor='hsl('+hue+',85%,65%)';mctx.shadowBlur=16;mctx.fill();
       }
     }
     mctx.globalAlpha=1;mctx.shadowBlur=0;
-    if(t<26){mctx.fillStyle='rgba(156,39,176,'+((1-t/26)*.55)+')';mctx.fillRect(0,0,560,360);}
-    if(t>26){
-      var ta=Math.min(1,(t-26)/18);mctx.globalAlpha=ta;
-      mctx.fillStyle='#FFD700';mctx.font='bold 24px Nunito';mctx.textAlign='center';
-      mctx.fillText('🎉 Nguyên Phân Hoàn Tất! 🎉',280,316);
-      mctx.fillStyle='white';mctx.font='17px Nunito';
-      mctx.fillText('Hệ số điểm mới: x'+mult,280,344);
+    if(t<28){mctx.fillStyle='rgba(156,39,176,'+((1-t/28)*.5)+')';mctx.fillRect(0,0,560,360);}
+    if(t>28){
+      var ta=Math.min(1,(t-28)/16);mctx.globalAlpha=ta;
+      // Score burst text
+      mctx.font='bold 28px Nunito';mctx.textAlign='center';
+      var grd=mctx.createLinearGradient(180,290,380,290);
+      grd.addColorStop(0,'#FFD700');grd.addColorStop(.5,'#FFF');grd.addColorStop(1,'#FFD700');
+      mctx.fillStyle=grd;
+      mctx.fillText('🎉 Nguyên Phân Hoàn Tất! 🎉',280,310);
+      mctx.font='20px Nunito';mctx.fillStyle='#FFD700';
+      mctx.fillText('Hệ số điểm mới: x'+mult,280,340);
       mctx.globalAlpha=1;
     }
     t++;
-    if(t<110)requestAnimationFrame(rm);
+    if(t<120)requestAnimationFrame(rm);
     else setTimeout(rstM,900);
   }
   requestAnimationFrame(rm);
 }
 
+function showBurstScore(pts){
+  var el=document.getElementById('mitosis-screen');
+  var burst=document.createElement('div');
+  burst.style.cssText='position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:30';
+  var txt=document.createElement('div');
+  txt.style.cssText='font-size:2.6rem;font-weight:900;color:#FFD700;text-shadow:0 0 22px #FFD700,0 0 44px rgba(255,215,0,.5);animation:burstUp 1.8s ease forwards;opacity:0';
+  txt.textContent='+'+pts.toLocaleString('vi-VN')+'đ';
+  burst.appendChild(txt);
+  el.appendChild(burst);
+  setTimeout(function(){el.removeChild(burst);},2200);
+}
+
+function mutFlash(){
+  var fl=document.getElementById('mut-flash');
+  fl.style.opacity='1';
+  setTimeout(function(){fl.style.opacity='0';},380);
+}
+
 function rstM(){
   var sx=Math.floor(GN/2),sy=Math.floor(GN/2);
   snake=[{x:sx,y:sy},{x:sx-1,y:sy},{x:sx-2,y:sy}];
-  dir={x:1,y:0};nd={x:1,y:0};pi=0;prg=0;foods=[];
-  spd=Math.max(72,PC['G1'].sp-cyc*20);
-  showSc('game-screen');updHUD();bgS();
+  dir={x:1,y:0};nd={x:1,y:0};inputQueue=[];pi=0;prg=0;foods=[];
+  mutations=[];repairSpawned=false;
+  sTemplate=[];sTemplateIdx=0;sStreak=0;sBonusTotal=0;
+  spd=Math.max(76,PC['G1'].sp-cyc*22);
+  showSc('game-screen');
+  spawnMutations('G1');
+  updHUD();bgPhase('G1');
   shPT('G1',function(){spF();spF();loop();});
 }
 
+// ── HUD UPDATE ──
 function updHUD(){
   document.getElementById('sdsp').textContent=score.toLocaleString('vi-VN');
   document.getElementById('mdsp').textContent='x'+mult;
@@ -620,12 +928,61 @@ function updHUD(){
   document.getElementById('prtxt').textContent=prg+' / '+cfg.tg;
   ['g1','s','g2','m'].forEach(function(p,i){
     var el=document.getElementById('a'+p);
-    if(el)el.style.opacity=i<pi?'1':(i===pi?'.92':'.2');
+    if(el)el.style.opacity=i<pi?'1':(i===pi?'.9':'.18');
   });
   var dot=document.getElementById('cdot');
   if(dot){dot.setAttribute('cx',cfg.dt.cx);dot.setAttribute('cy',cfg.dt.cy);dot.setAttribute('fill',cfg.clr);}
+  // Template HUD
+  var tw=document.getElementById('tmpl-wrap');
+  if(tw)tw.style.display=(ph==='S')?'block':'none';
+  if(ph==='S')updTemplate();
+  // Mutation HUD
+  var mhud=document.getElementById('mut-hud');
+  if(mhud){
+    mhud.style.display=mutations.length>0?'block':'none';
+    var mc2=document.getElementById('mut-count');
+    if(mc2)mc2.textContent=mutations.length;
+  }
 }
 
+// ── TEMPLATE DISPLAY ──
+function updTemplate(){
+  if(PHS[pi]!=='S'){return;}
+  var pairsEl=document.getElementById('tmpl-pairs');
+  if(!pairsEl)return;
+  pairsEl.innerHTML='';
+  for(var k=0;k<4;k++){
+    var ti=(sTemplateIdx+k)%sTemplate.length;
+    var tBase=sTemplate[ti];
+    var eBase=sComplement[tBase];
+    var tCol=sNucColor[tBase];
+    var eCol=sNucColor[eBase];
+    var isActive=(k===0);
+    var pair=document.createElement('div');
+    pair.className='tmpl-pair';
+    var tn=document.createElement('div');
+    tn.className='tmpl-nuc'+(isActive?' active':'');
+    tn.style.color=tCol;tn.style.borderColor=(isActive?tCol:'transparent');
+    tn.style.border=isActive?'1px solid '+tCol:'1px solid rgba(255,255,255,.1)';
+    tn.textContent=tBase;tn.style.opacity=isActive?'1':'0.55';
+    var arr=document.createElement('div');
+    arr.className='tmpl-arrow';arr.textContent='↓';arr.style.opacity=isActive?'0.8':'0.35';
+    var en=document.createElement('div');
+    en.className='tmpl-nuc tmpl-eat'+(isActive?' active':'');
+    en.style.color=eCol;en.style.borderColor=(isActive?eCol:'transparent');
+    en.style.border=isActive?'2px solid '+eCol:'1px solid rgba(255,255,255,.08)';
+    en.textContent=eBase;en.style.opacity=isActive?'1':'0.45';
+    if(isActive){en.style.animation='tpulse 1s ease-in-out infinite';}
+    pair.appendChild(tn);pair.appendChild(arr);pair.appendChild(en);
+    pairsEl.appendChild(pair);
+  }
+  var sv=document.getElementById('streak-val');
+  if(sv)sv.textContent=sStreak;
+  var bv=document.getElementById('bonus-val');
+  if(bv)bv.textContent=sBonusTotal.toLocaleString('vi-VN');
+}
+
+// ── END GAME (AUTO-SAVE) ──
 function endG(reason){
   running=false;bgX();sfxD();
   if(loopT){clearTimeout(loopT);loopT=null;}
@@ -635,25 +992,33 @@ function endG(reason){
   document.getElementById('fscore').textContent=score.toLocaleString('vi-VN');
   document.getElementById('cdone').textContent=cyc;
   document.getElementById('preach').textContent='Pha '+PHS[pi];
+  // Auto-save
+  autoSave();
   psc='gameover-screen';showSc('gameover-screen');
 }
 
+function autoSave(){
+  try{
+    var lb=gLb();
+    lb.push({nm:playerName,score:score,cyc:cyc,ph:'Pha '+PHS[pi],dt:new Date().toLocaleDateString('vi-VN')});
+    lb.sort(function(a,b){return b.score-a.score;});lb.splice(20);
+    localStorage.setItem('cbsnk',JSON.stringify(lb));
+    var el=document.getElementById('save-status');
+    if(el)el.textContent='💾 Đã tự động lưu điểm của '+playerName+'!';
+    shT('💾','Đã Lưu!','Điểm của '+playerName+' đã được ghi lại!','#4CAF50',2500);
+  }catch(e){}
+}
+
+// ── PAUSE / RESUME ──
 function pauseGame(){if(!running)return;paused=true;document.getElementById('pauseov').classList.add('show');}
 function resumeGame(){paused=false;document.getElementById('pauseov').classList.remove('show');}
 
+// ── LEADERBOARD ──
 function gLb(){try{return JSON.parse(localStorage.getItem('cbsnk')||'[]');}catch(e){return[];}}
-function saveSc(){
-  var nm=document.getElementById('pname').value.trim()||'Tế Bào Ẩn Danh';
-  var lb=gLb();
-  lb.push({nm:nm,score:score,cyc:cyc,ph:'Pha '+PHS[pi],dt:new Date().toLocaleDateString('vi-VN')});
-  lb.sort(function(a,b){return b.score-a.score;});lb.splice(20);
-  localStorage.setItem('cbsnk',JSON.stringify(lb));
-  shT('💾','Đã Lưu!','Điểm đã được ghi lại!','#4CAF50',2200);
-}
 function rnLb(){
   var lb=gLb(),list=document.getElementById('lblist');
   var md=['🥇','🥈','🥉'],cl=['gld','slv','brz'];
-  if(!lb.length){list.innerHTML='<div style="text-align:center;opacity:.5;padding:36px">Chưa có điểm nào!<br>Hãy chơi và ghi danh 🎮</div>';return;}
+  if(!lb.length){list.innerHTML='<div style="text-align:center;opacity:.5;padding:34px">Chưa có điểm nào!<br>Hãy chơi và ghi danh 🎮</div>';return;}
   list.innerHTML=lb.map(function(e,i){
     return '<div class="lbitem '+(cl[i]||'')+'"><div class="lbrank">'+(md[i]||(i+1))+'</div><div><div class="lbname">'+esc(e.nm)+'</div><div class="lbmeta">'+e.cyc+' chu kỳ · '+e.ph+' · '+(e.dt||'')+'</div></div><div class="lbscore">'+((e.score||0).toLocaleString('vi-VN'))+'</div></div>';
   }).join('');
@@ -661,9 +1026,10 @@ function rnLb(){
 function clrLb(){if(confirm('Xóa toàn bộ bảng xếp hạng?')){localStorage.removeItem('cbsnk');rnLb();}}
 function esc(s){return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 
+// ── TOAST ──
 var ttmr=null;
 function shT(icon,title,msg,color,dur){
-  dur=dur||3000;color=color||'#4CAF50';
+  dur=dur||2800;color=color||'#4CAF50';
   var el=document.getElementById('toast');
   document.getElementById('tico').textContent=icon;
   document.getElementById('ttitle').textContent=title;
@@ -675,36 +1041,61 @@ function shT(icon,title,msg,color,dur){
   ttmr=setTimeout(function(){el.classList.remove('show');},dur);
 }
 
+// ── COLOR UTILS ──
 function lc(hex,a){var n=parseInt(hex.replace('#',''),16);return 'rgb('+Math.min(255,(n>>16)+a)+','+Math.min(255,((n>>8)&0xff)+a)+','+Math.min(255,(n&0xff)+a)+')';}
 function dc(hex,a){var n=parseInt(hex.replace('#',''),16);return 'rgb('+Math.max(0,(n>>16)-a)+','+Math.max(0,((n>>8)&0xff)-a)+','+Math.max(0,(n&0xff)-a)+')';}
 
+// ── KEYBOARD INPUT (with queue) ──
+var dirMap={ArrowUp:{x:0,y:-1},ArrowDown:{x:0,y:1},ArrowLeft:{x:-1,y:0},ArrowRight:{x:1,y:0},
+  w:{x:0,y:-1},W:{x:0,y:-1},s:{x:0,y:1},S:{x:0,y:1},a:{x:-1,y:0},A:{x:-1,y:0},d:{x:1,y:0},D:{x:1,y:0}};
 document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'||e.key==='p'||e.key==='P'){if(running&&!paused)pauseGame();else if(paused)resumeGame();return;}
+  if(e.key==='Escape'||e.key==='p'||e.key==='P'){
+    if(running&&!paused)pauseGame();else if(paused)resumeGame();return;
+  }
   if(paused&&e.key===' '){resumeGame();return;}
+  if(e.key==='m'||e.key==='M'){toggleMute();return;}
   if(!running||paused)return;
-  var km={ArrowUp:{x:0,y:-1},ArrowDown:{x:0,y:1},ArrowLeft:{x:-1,y:0},ArrowRight:{x:1,y:0},w:{x:0,y:-1},W:{x:0,y:-1},s:{x:0,y:1},S:{x:0,y:1},a:{x:-1,y:0},A:{x:-1,y:0},d:{x:1,y:0},D:{x:1,y:0}};
-  var nnd=km[e.key];
-  if(nnd){e.preventDefault();if(!(nnd.x===-dir.x&&nnd.y===-dir.y))nd=nnd;}
+  var nnd=dirMap[e.key];
+  if(nnd){
+    e.preventDefault();
+    if(inputQueue.length<2)inputQueue.push(nnd);
+  }
 });
 
+// ── MOUSE CLICK ──
 var cv2=document.getElementById('gc');
 cv2.addEventListener('click',function(e){
   if(!running||paused)return;
   var rect=cv2.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;
   var hx=snake[0].x*CS+CS/2,hy=snake[0].y*CS+CS/2,ddx=mx-hx,ddy=my-hy;
-  if(Math.abs(ddx)>Math.abs(ddy)){var nnd={x:ddx>0?1:-1,y:0};if(!(nnd.x===-dir.x))nd=nnd;}
-  else{var nnd={x:0,y:ddy>0?1:-1};if(!(nnd.y===-dir.y))nd=nnd;}
+  var nnd;
+  if(Math.abs(ddx)>Math.abs(ddy))nnd={x:ddx>0?1:-1,y:0};
+  else nnd={x:0,y:ddy>0?1:-1};
+  if(inputQueue.length<2)inputQueue.push(nnd);
 });
-var tsx=0,tsy=0;
-cv2.addEventListener('touchstart',function(e){tsx=e.touches[0].clientX;tsy=e.touches[0].clientY;e.preventDefault();},{passive:false});
-cv2.addEventListener('touchend',function(e){
-  if(!running||paused)return;
-  var ddx=e.changedTouches[0].clientX-tsx,ddy=e.changedTouches[0].clientY-tsy;
-  if(Math.abs(ddx)>Math.abs(ddy)){var nnd={x:ddx>0?1:-1,y:0};if(!(nnd.x===-dir.x))nd=nnd;}
-  else{var nnd={x:0,y:ddy>0?1:-1};if(!(nnd.y===-dir.y))nd=nnd;}
+
+// ── TOUCH (fixed: touchstart + touchmove for low latency) ──
+var tsx=0,tsy=0,tActive=false;
+cv2.addEventListener('touchstart',function(e){
+  tsx=e.touches[0].clientX;tsy=e.touches[0].clientY;tActive=true;
   e.preventDefault();
 },{passive:false});
+cv2.addEventListener('touchmove',function(e){
+  if(!running||paused||!tActive)return;
+  var ddx=e.touches[0].clientX-tsx,ddy=e.touches[0].clientY-tsy;
+  var MIN_SWIPE=22;
+  if(Math.abs(ddx)>MIN_SWIPE||Math.abs(ddy)>MIN_SWIPE){
+    var nnd;
+    if(Math.abs(ddx)>Math.abs(ddy))nnd={x:ddx>0?1:-1,y:0};
+    else nnd={x:0,y:ddy>0?1:-1};
+    if(inputQueue.length<2)inputQueue.push(nnd);
+    tsx=e.touches[0].clientX;tsy=e.touches[0].clientY;
+  }
+  e.preventDefault();
+},{passive:false});
+cv2.addEventListener('touchend',function(e){tActive=false;e.preventDefault();},{passive:false});
 
+// ── BACKGROUND PARTICLES ──
 (function(){
   var c=document.getElementById('bgp'),cls=['#4CAF50','#2196F3','#FF9800','#9C27B0','#FFD700'];
   for(var i=0;i<22;i++){
@@ -715,6 +1106,7 @@ cv2.addEventListener('touchend',function(e){
   }
 })();
 
+// ── INIT ──
 showSc('menu-screen');
 </script>
 </body>
