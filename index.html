@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tế Bào Phiêu Lưu Ký</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap");
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a1a;font-family:"Nunito",sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden;color:#fff}
+.screen{position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;transition:opacity .5s;z-index:10}
+.screen.hidden{opacity:0;pointer-events:none}
+#menu-screen{background:radial-gradient(ellipse at center,#0d1b2a,#0a0a1a)}
+.menu-title{font-size:2.8rem;font-weight:900;text-align:center;margin-bottom:10px;background:linear-gradient(135deg,#4CAF50,#2196F3,#9C27B0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:tpulse 3s ease-in-out infinite}
+.menu-sub{font-size:1.1rem;color:rgba(255,255,255,.65);margin-bottom:26px;text-align:center}
+@keyframes tpulse{0%,100%{filter:drop-shadow(0 0 18px rgba(76,175,80,.5))}50%{filter:drop-shadow(0 0 38px rgba(33,150,243,.8))}}
+.deco{position:absolute;font-size:1.5rem;opacity:.14;animation:fl 4s ease-in-out infinite;user-select:none}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.menu-btns{display:flex;flex-direction:column;gap:13px;align-items:center}
+.btn{padding:13px 44px;border:none;border-radius:50px;font-family:"Nunito",sans-serif;font-size:1.05rem;font-weight:800;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:1px}
+.btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 28px rgba(0,0,0,.5)}
+.btn:active{transform:translateY(0)}
+.bg{background:linear-gradient(135deg,#4CAF50,#2E7D32);color:#fff;box-shadow:0 5px 18px rgba(76,175,80,.4)}
+.bb{background:linear-gradient(135deg,#2196F3,#1565C0);color:#fff;box-shadow:0 5px 18px rgba(33,150,243,.4)}
+.bo{background:linear-gradient(135deg,#FF9800,#E65100);color:#fff;box-shadow:0 5px 18px rgba(255,152,0,.4)}
+.bp{background:linear-gradient(135deg,#9C27B0,#6A1B9A);color:#fff;box-shadow:0 5px 18px rgba(156,39,176,.4)}
+.by{background:linear-gradient(135deg,#FFD700,#F57F17);color:#1a0a00;box-shadow:0 5px 18px rgba(255,215,0,.4)}
+.chips{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap;justify-content:center}
+.chip{padding:6px 16px;border-radius:28px;font-size:.83rem;font-weight:700;border:2px solid}
+.c1{color:#4CAF50;border-color:#4CAF50;background:rgba(76,175,80,.1)}
+.c2{color:#2196F3;border-color:#2196F3;background:rgba(33,150,243,.1)}
+.c3{color:#FF9800;border-color:#FF9800;background:rgba(255,152,0,.1)}
+.c4{color:#9C27B0;border-color:#9C27B0;background:rgba(156,39,176,.1)}
+/* Tutorial */
+#tutorial-screen{background:rgba(0,0,0,.9);padding:20px}
+.tbox{max-width:660px;width:100%;background:linear-gradient(135deg,rgba(18,28,48,.98),rgba(8,12,28,.98));border-radius:22px;border:2px solid rgba(76,175,80,.3);overflow:hidden;max-height:90vh;display:flex;flex-direction:column}
+.thead{padding:17px 22px;background:linear-gradient(135deg,#4CAF50,#2196F3);font-size:1.35rem;font-weight:800}
+.ttabs{display:flex;border-bottom:1px solid rgba(255,255,255,.1)}
+.ttab{flex:1;padding:10px 4px;background:none;border:none;color:rgba(255,255,255,.5);font-family:"Nunito",sans-serif;font-size:.79rem;font-weight:700;cursor:pointer;transition:all .3s;border-bottom:3px solid transparent}
+.ttab.active{color:#fff;border-bottom-color:#4CAF50}
+.tbody{flex:1;overflow-y:auto;padding:18px 22px}
+.tpage{display:none}.tpage.active{display:block}
+.pcard{background:rgba(255,255,255,.05);border-radius:12px;padding:12px 16px;margin-bottom:11px;border-left:4px solid}
+.pcard h3{font-size:.91rem;font-weight:800;margin-bottom:5px}.pcard p{font-size:.85rem;opacity:.82;line-height:1.55}
+.pcard.g1{border-color:#4CAF50}.pcard.s{border-color:#2196F3}.pcard.g2{border-color:#FF9800}.pcard.m{border-color:#9C27B0}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.citem{background:rgba(255,255,255,.05);border-radius:9px;padding:10px;text-align:center;font-size:.85rem}
+.citem kbd{display:inline-block;padding:3px 7px;background:rgba(255,255,255,.15);border-radius:5px;font-size:.92rem}
+.tfoot{padding:12px 22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between}
+/* Game */
+#game-screen{background:transparent}
+.glayout{display:flex;align-items:center;gap:14px;padding:10px}
+.sidebar{width:180px;display:flex;flex-direction:column;gap:8px}
+.hpanel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px}
+.hlbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:3px}
+.hval{font-size:1.6rem;font-weight:900;line-height:1}
+.sc{color:#FFD700}.mx{color:#FF6B6B}
+.phind{background:rgba(255,255,255,.05);border-radius:12px;padding:10px 12px;border:2px solid;transition:border-color .5s,box-shadow .5s}
+.phind.g1{border-color:#4CAF50;box-shadow:0 0 13px rgba(76,175,80,.28)}
+.phind.s{border-color:#2196F3;box-shadow:0 0 13px rgba(33,150,243,.28)}
+.phind.g2{border-color:#FF9800;box-shadow:0 0 13px rgba(255,152,0,.28)}
+.phind.m{border-color:#9C27B0;box-shadow:0 0 13px rgba(156,39,176,.28)}
+.pnm{font-size:1rem;font-weight:900;margin-bottom:3px}
+.pg1{color:#4CAF50}.ps{color:#2196F3}.pg2{color:#FF9800}.pm{color:#9C27B0}
+.pdesc{font-size:.69rem;opacity:.7;line-height:1.4}
+.prwrap{background:rgba(255,255,255,.05);border-radius:12px;padding:10px 12px}
+.prtrack{height:8px;background:rgba(255,255,255,.1);border-radius:8px;overflow:hidden;margin-top:5px}
+.prfill{height:100%;border-radius:8px;transition:width .4s}
+.cdiag{background:rgba(255,255,255,.05);border-radius:12px;padding:11px;text-align:center}
+.csvg{width:130px;height:130px}
+.swrap{position:relative;display:flex;justify-content:center;align-items:center}
+.souter{width:516px;height:516px;border-radius:50%;background:#0b1320;border:12px solid #253348;box-shadow:0 0 0 3px #182640,0 0 50px rgba(33,150,243,.14),inset 0 0 70px rgba(0,0,28,.8),0 16px 50px rgba(0,0,0,.7);overflow:hidden;position:relative}
+.sring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:492px;height:492px;border-radius:50%;border:1px solid rgba(255,255,255,.04);pointer-events:none;z-index:5}
+#toast{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-120px);background:rgba(12,22,40,.97);border:2px solid rgba(76,175,80,.5);border-radius:13px;padding:12px 20px;max-width:360px;text-align:center;font-size:.88rem;transition:transform .5s cubic-bezier(.175,.885,.32,1.275);z-index:200;pointer-events:none}
+#toast.show{transform:translateX(-50%) translateY(0)}
+.tico{font-size:1.5rem;margin-bottom:3px}.ttitle{font-weight:800;font-size:.9rem;margin-bottom:3px}.tmsg{opacity:.82;font-size:.79rem}
+#pov{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;z-index:80;pointer-events:none;opacity:0;transition:opacity .5s;background:rgba(0,0,0,.65)}
+#pov.show{opacity:1;pointer-events:all}
+.tcard{background:rgba(5,9,22,.99);border:3px solid;border-radius:24px;padding:30px 44px;text-align:center;max-width:450px;transform:scale(.86);transition:transform .5s cubic-bezier(.175,.885,.32,1.275)}
+#pov.show .tcard{transform:scale(1)}
+.tric{font-size:3rem;margin-bottom:10px}.trtl{font-size:1.65rem;font-weight:900;margin-bottom:7px}.trsb{font-size:.9rem;opacity:.83;margin-bottom:13px;line-height:1.55}
+.trbio{font-size:.79rem;opacity:.62;margin-bottom:18px;padding:10px;background:rgba(255,255,255,.05);border-radius:8px;line-height:1.6;border-left:3px solid}
+.trcd{font-size:2rem;font-weight:900;opacity:.85}
+#pauseov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:flex;justify-content:center;align-items:center;z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
+#pauseov.show{opacity:1;pointer-events:all}
+.pausecard{background:rgba(5,9,22,.99);border:2px solid rgba(255,255,255,.1);border-radius:22px;padding:34px 50px;text-align:center}
+.pausecard h2{font-size:1.8rem;margin-bottom:16px}.pausebtns{display:flex;flex-direction:column;gap:11px}
+#gameover-screen{background:rgba(0,0,0,.93)}
+.gocard{background:linear-gradient(135deg,rgba(18,28,48,.99),rgba(8,12,28,.99));border:2px solid rgba(255,255,255,.1);border-radius:24px;padding:30px 40px;text-align:center;max-width:400px;width:90%;animation:slideUp .5s ease}
+@keyframes slideUp{from{transform:translateY(46px);opacity:0}to{transform:translateY(0);opacity:1}}
+.goic{font-size:3rem;margin-bottom:6px}.gotl{font-size:1.8rem;font-weight:900;margin-bottom:3px}.goreason{font-size:.87rem;opacity:.7;margin-bottom:18px}
+.scorebox{background:rgba(255,215,0,.1);border:2px solid rgba(255,215,0,.3);border-radius:11px;padding:12px;margin-bottom:14px}
+.scorebox .sl{font-size:.72rem;opacity:.6}.scorebox .sv{font-size:2.1rem;font-weight:900;color:#FFD700}
+.namerow{display:flex;gap:10px;margin-bottom:14px}
+.nameinp{flex:1;padding:10px 12px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.13);border-radius:10px;color:#fff;font-family:"Nunito",sans-serif;font-size:.9rem;font-weight:600;outline:none;transition:border-color .3s}
+.nameinp:focus{border-color:#4CAF50}.nameinp::placeholder{opacity:.5}
+.gobtns{display:flex;flex-direction:column;gap:9px}
+#leaderboard-screen{background:rgba(0,0,0,.93);padding:20px}
+.lbbox{max-width:440px;width:100%;background:linear-gradient(135deg,rgba(18,28,48,.99),rgba(8,12,28,.99));border:2px solid rgba(255,215,0,.2);border-radius:22px;overflow:hidden;max-height:90vh;display:flex;flex-direction:column}
+.lbhead{padding:18px 24px;background:linear-gradient(135deg,#FFD700,#FF8C00);color:#1a0a00;font-size:1.4rem;font-weight:900;text-align:center}
+.lblist{flex:1;overflow-y:auto;padding:14px}
+.lbitem{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;margin-bottom:6px;background:rgba(255,255,255,.04)}
+.lbitem.gld{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3)}
+.lbitem.slv{background:rgba(192,192,192,.1);border:1px solid rgba(192,192,192,.3)}
+.lbitem.brz{background:rgba(205,127,50,.1);border:1px solid rgba(205,127,50,.3)}
+.lbrank{font-size:1.15rem;width:28px;text-align:center}.lbname{flex:1;font-weight:700;font-size:.9rem}.lbscore{font-weight:900;font-size:1rem;color:#FFD700}.lbmeta{font-size:.68rem;opacity:.5}
+.lbfoot{padding:12px 24px;border-top:1px solid rgba(255,255,255,.1);display:flex;gap:10px}
+#mitosis-screen{background:#06060f;z-index:60}
+#mcanvas{border-radius:14px}
+.mitomsg{text-align:center;margin-top:14px}
+.mitomsg h2{font-size:1.7rem;font-weight:900;color:#9C27B0;margin-bottom:6px}
+.mitomsg p{opacity:.7;font-size:.9rem}
+#bgp{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0;overflow:hidden}
+.par{position:absolute;border-radius:50%;animation:pf linear infinite;opacity:.28}
+@keyframes pf{0%{transform:translateY(108vh);opacity:0}10%{opacity:.28}90%{opacity:.28}100%{transform:translateY(-8vh);opacity:0}}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:8px}
+</style>
+</head>
+<body>
+<div id="bgp"></div>
+
+<!-- MENU -->
+<div id="menu-screen" class="screen">
+  <div class="deco" style="top:10%;left:5%">🧬</div>
+  <div class="deco" style="top:15%;right:8%;animation-delay:1s">⚗️</div>
+  <div class="deco" style="bottom:20%;left:10%;animation-delay:2s">🔬</div>
+  <div class="deco" style="bottom:10%;right:5%;animation-delay:.5s">🧪</div>
+  <div class="deco" style="top:50%;left:3%;animation-delay:1.5s">🫧</div>
+  <div class="deco" style="top:40%;right:3%;animation-delay:2.5s">💊</div>
+  <div class="menu-title">🧬 Tế Bào Phiêu Lưu Ký</div>
+  <div class="menu-sub">Dẫn dắt tế bào qua Chu Kỳ Nguyên Phân!</div>
+  <div class="chips">
+    <span class="chip c1">🌱 Pha G1</span>
+    <span class="chip c2">🧬 Pha S</span>
+    <span class="chip c3">⭐ Pha G2</span>
+    <span class="chip c4">✨ Pha M</span>
+  </div>
+  <div class="menu-btns">
+    <button class="btn bg" onclick="startGame()">🎮 Bắt Đầu Chơi</button>
+    <button class="btn bb" onclick="showSc('tutorial-screen')">📖 Hướng Dẫn</button>
+    <button class="btn by" onclick="showSc('leaderboard-screen');psc='menu-screen'">🏆 Bảng Xếp Hạng</button>
+  </div>
+</div>
+
+<!-- TUTORIAL -->
+<div id="tutorial-screen" class="screen hidden">
+  <div class="tbox">
+    <div class="thead">📖 Hướng Dẫn Chơi</div>
+    <div class="ttabs">
+      <button class="ttab active" onclick="switchT(this,'tgp')">🎮 Gameplay</button>
+      <button class="ttab" onclick="switchT(this,'tph')">🧬 Các Pha</button>
+      <button class="ttab" onclick="switchT(this,'tct')">⌨️ Điều Khiển</button>
+      <button class="ttab" onclick="switchT(this,'ttp')">💡 Mẹo</button>
+    </div>
+    <div class="tbody">
+      <div id="tgp" class="tpage active">
+        <p style="margin-bottom:12px;opacity:.83;line-height:1.65;font-size:.9rem">Bạn là một <strong>tế bào</strong> thực hiện hành trình <strong>nguyên phân</strong>! Điều khiển con rắn thu thập chất dinh dưỡng qua 4 pha. Hoàn thành cả 4 để nhân đôi điểm số!</p>
+        <div class="pcard g1"><h3>🌱 Pha G1 — Sinh Trưởng</h3><p>Thu thập <strong>Acid Amin (AA)</strong> và <strong>ATP</strong>. Ăn đủ 10 để chuyển pha.</p></div>
+        <div class="pcard s"><h3>🧬 Pha S — Nhân Đôi ADN</h3><p>Thu thập <strong>Nucleotide</strong> A, T, G, X đầy màu sắc. Ăn đủ 15. Rắn phát sáng!</p></div>
+        <div class="pcard g2"><h3>⭐ Pha G2 — Chuẩn Bị Phân Bào</h3><p>Thu thập <strong>Enzyme E</strong> hình ngôi sao. Rắn rất dài — hãy khéo léo!</p></div>
+        <div class="pcard m"><h3>🎉 Pha M — Nguyên Phân!</h3><p>Cutscene đặc biệt! Rắn tách đôi. Game reset với <strong>điểm x2</strong>!</p></div>
+      </div>
+      <div id="tph" class="tpage">
+        <p style="opacity:.7;font-size:.84rem;margin-bottom:12px;padding:9px;background:rgba(255,255,255,.05);border-radius:9px;line-height:1.6">🔬 <strong>Chu kỳ tế bào</strong>: Quá trình tế bào lớn lên và phân chia gồm 4 pha: G1, S, G2 và M (nguyên phân).</p>
+        <div class="pcard g1"><h3 style="color:#4CAF50">🌱 G1 (Gap 1)</h3><p>Tổng hợp protein, bào quan. Tích lũy ATP và Acid Amin. Giai đoạn dài nhất chu kỳ.</p></div>
+        <div class="pcard s"><h3 style="color:#2196F3">🧬 S (Synthesis)</h3><p>ADN tự nhân đôi. Nguyên tắc bổ sung: <strong>A=T</strong>, <strong>G≡X (Cytosine)</strong>. 1 ADN → 2 bản sao giống hệt!</p></div>
+        <div class="pcard g2"><h3 style="color:#FF9800">⭐ G2 (Gap 2)</h3><p>Tổng hợp Enzyme, protein thoi vô sắc. Kiểm tra tính toàn vẹn ADN trước khi phân bào.</p></div>
+        <div class="pcard m"><h3 style="color:#9C27B0">✨ M (Mitosis)</h3><p>4 kỳ: Đầu → Giữa → Sau → Cuối. NST tách đôi. Kết quả: <strong>2 tế bào con (2n)</strong> giống tế bào mẹ.</p></div>
+      </div>
+      <div id="tct" class="tpage">
+        <p style="opacity:.7;margin-bottom:12px;font-size:.88rem">Điều khiển con rắn bằng bàn phím, chuột hoặc vuốt:</p>
+        <div class="cgrid">
+          <div class="citem"><kbd>↑</kbd><kbd>W</kbd><br><small>Đi lên</small></div>
+          <div class="citem"><kbd>↓</kbd><kbd>S</kbd><br><small>Đi xuống</small></div>
+          <div class="citem"><kbd>←</kbd><kbd>A</kbd><br><small>Sang trái</small></div>
+          <div class="citem"><kbd>→</kbd><kbd>D</kbd><br><small>Sang phải</small></div>
+        </div><br>
+        <div class="cgrid">
+          <div class="citem"><kbd>P</kbd><kbd>Esc</kbd><br><small>Tạm dừng</small></div>
+          <div class="citem"><kbd>Space</kbd><br><small>Tiếp tục</small></div>
+        </div>
+        <br><p style="opacity:.6;font-size:.82rem;text-align:center">🖱️ Click chuột vào hướng muốn đi · 👆 Vuốt cảm ứng</p>
+      </div>
+      <div id="ttp" class="tpage">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:rgba(76,175,80,.1);border-left:4px solid #4CAF50;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">💡 <strong>Pha G1:</strong> Rắn ngắn, dễ di chuyển. Luyện phản xạ trước!</div>
+          <div style="background:rgba(33,150,243,.1);border-left:4px solid #2196F3;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">💡 <strong>Pha S:</strong> Tốc độ tăng nhẹ. Rắn phát sáng khi nhân đôi ADN!</div>
+          <div style="background:rgba(255,152,0,.1);border-left:4px solid #FF9800;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">⚠️ <strong>Pha G2:</strong> Rắn rất dài! Di chuyển vòng tròn để không bị kẹt.</div>
+          <div style="background:rgba(156,39,176,.1);border-left:4px solid #9C27B0;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">🎉 <strong>Pha M:</strong> Tận hưởng cutscene nguyên phân kỳ diệu!</div>
+          <div style="background:rgba(255,215,0,.1);border-left:4px solid #FFD700;padding:11px;border-radius:8px;font-size:.85rem;line-height:1.6">🏆 <strong>Điểm số:</strong> Mỗi lần nguyên phân thành công → điểm x2!</div>
+        </div>
+      </div>
+    </div>
+    <div class="tfoot">
+      <button class="btn bp" onclick="showSc('menu-screen')" style="padding:10px 24px;font-size:.9rem">← Quay Lại</button>
+      <button class="btn bg" onclick="startGame()" style="padding:10px 24px;font-size:.9rem">🎮 Chơi Ngay!</button>
+    </div>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="game-screen" class="screen hidden">
+  <div class="glayout">
+    <div class="sidebar">
+      <div class="hpanel"><div class="hlbl">⭐ Điểm Số</div><div class="hval sc" id="sdsp">0</div></div>
+      <div class="hpanel"><div class="hlbl">🔥 Hệ Số Nhân</div><div class="hval mx" id="mdsp">x1</div></div>
+      <div class="phind g1" id="phind">
+        <div class="pnm pg1" id="phnm">Pha G1</div>
+        <div class="pdesc" id="phds">🌱 Sinh Trưởng — Thu thập AA và ATP</div>
+      </div>
+      <div class="prwrap">
+        <div class="hlbl" id="prlbl">Tiến Trình</div>
+        <div class="prtrack"><div class="prfill" id="prfill" style="width:0%"></div></div>
+        <div style="font-size:.69rem;opacity:.6;margin-top:4px" id="prtxt">0 / 10</div>
+      </div>
+      <div class="cdiag">
+        <div class="hlbl" style="margin-bottom:7px">Chu Kỳ Tế Bào</div>
+        <svg class="csvg" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="55" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="8"/>
+          <path id="ag1" d="M70,15 A55,55 0 0,1 125,70" fill="none" stroke="#4CAF50" stroke-width="8" stroke-linecap="round" opacity=".9"/>
+          <path id="as"  d="M125,70 A55,55 0 0,1 70,125" fill="none" stroke="#2196F3" stroke-width="8" stroke-linecap="round" opacity=".2"/>
+          <path id="ag2" d="M70,125 A55,55 0 0,1 15,70"  fill="none" stroke="#FF9800" stroke-width="8" stroke-linecap="round" opacity=".2"/>
+          <path id="am"  d="M15,70 A55,55 0 0,1 70,15"   fill="none" stroke="#9C27B0" stroke-width="8" stroke-linecap="round" opacity=".2"/>
+          <text x="98" y="45" fill="#4CAF50" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">G1</text>
+          <text x="110" y="90" fill="#2196F3" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">S</text>
+          <text x="38" y="105" fill="#FF9800" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">G2</text>
+          <text x="28" y="52" fill="#9C27B0" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">M</text>
+          <circle id="cdot" cx="98" cy="40" r="5" fill="#4CAF50"/>
+        </svg>
+      </div>
+      <button class="btn bp" onclick="pauseGame()" style="padding:8px 14px;font-size:.82rem">⏸ Tạm Dừng (P)</button>
+    </div>
+    <div class="swrap">
+      <div class="souter">
+        <div class="sring"></div>
+        <canvas id="gc" width="492" height="492"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MITOSIS -->
+<div id="mitosis-screen" class="screen hidden">
+  <canvas id="mcanvas" width="560" height="360"></canvas>
+  <div class="mitomsg">
+    <h2 id="mtitle">✨ Nguyên Phân Thành Công! ✨</h2>
+    <p id="msub">Tế bào mẹ đã tách thành 2 tế bào con</p>
+    <p style="opacity:.42;margin-top:6px;font-size:.79rem">Đang tiếp tục...</p>
+  </div>
+</div>
+
+<!-- GAME OVER -->
+<div id="gameover-screen" class="screen hidden">
+  <div class="gocard">
+    <div class="goic" id="goic">💀</div>
+    <div class="gotl" id="gotl">Game Over!</div>
+    <div class="goreason" id="goreason">Con rắn đã va chạm!</div>
+    <div class="scorebox"><div class="sl">Điểm Số Cuối Cùng</div><div class="sv" id="fscore">0</div></div>
+    <div style="font-size:.79rem;opacity:.6;margin-bottom:14px">Chu kỳ: <strong id="cdone">0</strong> · Pha: <strong id="preach">G1</strong></div>
+    <div class="namerow"><input type="text" class="nameinp" id="pname" placeholder="Nhập tên của bạn..." maxlength="20"><button class="btn bo" onclick="saveSc()" style="padding:10px 14px;font-size:.85rem">💾</button></div>
+    <div class="gobtns">
+      <button class="btn bg" onclick="startGame()">🔄 Chơi Lại</button>
+      <button class="btn by" onclick="showSc('leaderboard-screen');psc='gameover-screen'">🏆 Bảng Xếp Hạng</button>
+      <button class="btn bp" onclick="goMenu()">🏠 Về Menu</button>
+    </div>
+  </div>
+</div>
+
+<!-- LEADERBOARD -->
+<div id="leaderboard-screen" class="screen hidden">
+  <div class="lbbox">
+    <div class="lbhead">🏆 Bảng Xếp Hạng</div>
+    <div class="lblist" id="lblist"></div>
+    <div class="lbfoot">
+      <button class="btn bp" onclick="goBackLb()" style="flex:1;padding:10px;font-size:.88rem">← Quay Lại</button>
+      <button class="btn bb" onclick="clrLb()" style="padding:10px 14px;font-size:.78rem">🗑️ Xóa</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"><div class="tico" id="tico">ℹ️</div><div class="ttitle" id="ttitle">Thông báo</div><div class="tmsg" id="tmsg">...</div></div>
+
+<!-- PHASE OVERLAY -->
+<div id="pov">
+  <div class="tcard" id="tcard">
+    <div class="tric" id="tric">🌱</div>
+    <div class="trtl" id="trtl">Pha G1</div>
+    <div class="trsb" id="trsb">Tế bào bắt đầu sinh trưởng!</div>
+    <div class="trbio" id="trbio"></div>
+    <div class="trcd" id="trcd">3</div>
+  </div>
+</div>
+
+<!-- PAUSE -->
+<div id="pauseov">
+  <div class="pausecard">
+    <h2>⏸ Tạm Dừng</h2>
+    <div class="pausebtns">
+      <button class="btn bg" onclick="resumeGame()">▶ Tiếp Tục</button>
+      <button class="btn bb" onclick="showSc('tutorial-screen');paused=false">📖 Hướng Dẫn</button>
+      <button class="btn bp" onclick="goMenu()">🏠 Về Menu</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var CS=24,CW=492,GN=Math.floor(CW/CS),CR=CW/2,CC={x:CW/2,y:CW/2};
+var PHS=['G1','S','G2','M'];
+var PC={
+  G1:{
+    clr:'#4CAF50',gl:'rgba(76,175,80,.3)',nm:'Pha G1',em:'🌱',
+    ds:'🌱 Sinh Trưởng — Thu thập AA và ATP',
+    tg:10,sp:188,fd:['AA','ATP'],fc:{AA:'#FF6B6B',ATP:'#FFD700'},pl:'Dinh Dưỡng',
+    ai:'ag1',dt:{cx:98,cy:40},
+    bio:'Trong Pha G1, tế bào tổng hợp protein, tăng kích thước và tích lũy ATP để chuẩn bị nhân đôi ADN.',
+    ttl:'🌱 Bước vào Pha G1!',tsb:'Tế bào cần lớn lên. Hãy thu thập Acid Amin và ATP!'
+  },
+  S:{
+    clr:'#2196F3',gl:'rgba(33,150,243,.3)',nm:'Pha S',em:'🧬',
+    ds:'🧬 Nhân Đôi ADN — Thu thập Nucleotide',
+    tg:15,sp:158,fd:['A','T','G','X'],fc:{A:'#FF4757',T:'#2ed573',G:'#1e90ff',X:'#ffa502'},pl:'Nucleotide',
+    ai:'as',dt:{cx:110,cy:90},
+    bio:'Pha S: ADN tự nhân đôi theo nguyên tắc bổ sung và bán bảo toàn. A=T, G≡X (Cytosine). 1 ADN → 2 bản sao giống hệt!',
+    ttl:'🧬 Bước vào Pha S!',tsb:'Thời gian nhân đôi ADN! Thu thập Nucleotide A, T, G, X!'
+  },
+  G2:{
+    clr:'#FF9800',gl:'rgba(255,152,0,.3)',nm:'Pha G2',em:'⭐',
+    ds:'⭐ Chuẩn Bị Phân Bào — Thu thập Enzyme',
+    tg:8,sp:132,fd:['E'],fc:{E:'#FFD700'},pl:'Enzyme',
+    ai:'ag2',dt:{cx:38,cy:105},
+    bio:'Pha G2: Tổng hợp Enzyme và protein thoi vô sắc. Kiểm tra ADN đã sao chép chính xác chưa.',
+    ttl:'⭐ Bước vào Pha G2!',tsb:'Rắn đã rất dài! Hãy khéo léo thu thập Enzyme!'
+  },
+  M:{
+    clr:'#9C27B0',gl:'rgba(156,39,176,.3)',nm:'Pha M',em:'✨',
+    ds:'✨ Nguyên Phân — Tế bào đang tách đôi!',
+    tg:0,sp:112,fd:[],fc:{},pl:'Nguyên Phân',
+    ai:'am',dt:{cx:28,cy:52},
+    bio:'Pha M: 4 kỳ — Đầu, Giữa, Sau, Cuối. NST tách thành 2 bộ giống nhau. Tế bào thắt eo → 2 tế bào con (2n).',
+    ttl:'✨ NGUYÊN PHÂN!',tsb:'Tế bào bắt đầu phân chia!'
+  }
+};
+
+// AUDIO
+var ac=null;
+function gac(){if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();return ac;}
+function tn(f,t,d,v,dl){t=t||'sine';d=d||.15;v=v||.3;dl=dl||0;
+  try{var c=gac(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);
+  o.type=t;o.frequency.setValueAtTime(f,c.currentTime+dl);
+  g.gain.setValueAtTime(v,c.currentTime+dl);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+dl+d);
+  o.start(c.currentTime+dl);o.stop(c.currentTime+dl+d+.05);}catch(e){}}
+function sfxE(){tn(440,'sine',.1,.42);tn(660,'sine',.1,.32,.06);}
+function sfxD(){tn(200,'sawtooth',.4,.5);tn(150,'sawtooth',.4,.4,.22);tn(100,'sawtooth',.55,.5,.42);}
+function sfxP(){[0,.1,.2,.3,.4].forEach(function(d,i){tn(440+i*110,'sine',.22,.3,d);});}
+function sfxM(){for(var i=0;i<8;i++)tn(330+i*58,'sine',.28,.3,i*.11);}
+var bgI=null,bgN=[261,294,329,349,392,440],bgNi=0;
+function bgS(){if(bgI)return;bgI=setInterval(function(){if(!paused&&running)tn(bgN[bgNi++%bgN.length],'triangle',.28,.04);},520);}
+function bgX(){if(bgI){clearInterval(bgI);bgI=null;}}
+
+// STATE
+var running=false,paused=false,loopT=null;
+var snake=[],dir={x:1,y:0},nd={x:1,y:0};
+var foods=[],score=0,mult=1,pi=0,prg=0,cyc=0,spd=188;
+var glw=false,glwT=0,frm=0,psc='menu-screen';
+var cv=document.getElementById('gc'),ctx=cv.getContext('2d');
+
+function showSc(id){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.add('hidden');});
+  document.getElementById(id).classList.remove('hidden');
+  if(id==='leaderboard-screen')rnLb();
+}
+function goBackLb(){showSc(psc||'menu-screen');}
+function goMenu(){running=false;paused=false;bgX();document.getElementById('pauseov').classList.remove('show');showSc('menu-screen');}
+function switchT(btn,id){
+  document.querySelectorAll('.ttab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.tpage').forEach(function(p){p.classList.remove('active');});
+  btn.classList.add('active');document.getElementById(id).classList.add('active');
+}
+
+function startGame(){
+  score=0;mult=1;pi=0;prg=0;cyc=0;
+  dir={x:1,y:0};nd={x:1,y:0};frm=0;glw=false;foods=[];paused=false;
+  var sx=Math.floor(GN/2),sy=Math.floor(GN/2);
+  snake=[{x:sx,y:sy},{x:sx-1,y:sy},{x:sx-2,y:sy}];
+  spd=PC[PHS[0]].sp;
+  showSc('game-screen');updHUD();spF();spF();
+  running=true;bgS();
+  shPT('G1',function(){loop();});
+}
+
+function loop(){
+  if(!running)return;
+  if(paused){loopT=setTimeout(loop,50);return;}
+  frm++;upd();rnd();
+  loopT=setTimeout(loop,spd);
+}
+
+function upd(){
+  if(!running||paused)return;
+  dir={x:nd.x,y:nd.y};
+  var h={x:snake[0].x+dir.x,y:snake[0].y+dir.y};
+  var ddx=(h.x*CS+CS/2)-CC.x,ddy=(h.y*CS+CS/2)-CC.y;
+  if(Math.sqrt(ddx*ddx+ddy*ddy)>CR-CS){endG('Đâm vào thành kính hiển vi! 🔬');return;}
+  for(var i=1;i<snake.length-2;i++){
+    if(snake[i].x===h.x&&snake[i].y===h.y){endG('Con rắn tự cắn vào đuôi! 🐍');return;}
+  }
+  snake.unshift(h);
+  var ate=false;
+  for(var j=foods.length-1;j>=0;j--){
+    if(foods[j].x===h.x&&foods[j].y===h.y){
+      ate=true;var f=foods.splice(j,1)[0];
+      score+=10*mult;prg++;sfxE();updHUD();
+      if(PHS[pi]==='S'){glw=true;glwT=6;shT('🧬','Nucleotide '+f.t,'Đã thêm '+f.t+' vào chuỗi ADN!',PC.S.clr,1200);}
+      spF();chkP();break;
+    }
+  }
+  if(!ate)snake.pop();
+  if(glwT>0)glwT--;
+  if(glwT===0)glw=false;
+}
+
+function rnd(){
+  ctx.clearRect(0,0,CW,CW);
+  var bg=ctx.createRadialGradient(CC.x,CC.y,0,CC.x,CC.y,CR);
+  bg.addColorStop(0,'#0f1e38');bg.addColorStop(1,'#060d1c');
+  ctx.fillStyle=bg;ctx.beginPath();ctx.arc(CC.x,CC.y,CR,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.022)';
+  for(var x=0;x<GN;x++){for(var y=0;y<GN;y++){
+    var cx=x*CS+CS/2,cy=y*CS+CS/2;
+    if(Math.sqrt((cx-CC.x)*(cx-CC.x)+(cy-CC.y)*(cy-CC.y))<CR-3){
+      ctx.beginPath();ctx.arc(cx,cy,1,0,Math.PI*2);ctx.fill();
+    }
+  }}
+  var cfg=PC[PHS[pi]];
+  var ag=ctx.createRadialGradient(CC.x,CC.y,0,CC.x,CC.y,CR);
+  ag.addColorStop(0,'transparent');ag.addColorStop(.7,'transparent');ag.addColorStop(1,cfg.gl);
+  ctx.fillStyle=ag;ctx.beginPath();ctx.arc(CC.x,CC.y,CR,0,Math.PI*2);ctx.fill();
+  foods.forEach(function(f){drF(f);});
+  drS();
+}
+
+function drF(f){
+  var x=f.x*CS+CS/2,y=f.y*CS+CS/2,r=CS*.43,ph=PHS[pi];
+  ctx.save();ctx.translate(x,y);
+  if(ph==='G2'){
+    var rot=(frm*.05)%(Math.PI*2);ctx.rotate(rot);
+    drStar(ctx,0,0,5,r,r*.48);
+    ctx.fillStyle='#FFD700';ctx.shadowColor='#FFD700';ctx.shadowBlur=18;ctx.fill();
+    ctx.shadowBlur=0;ctx.rotate(-rot);
+    ctx.fillStyle='#1a0a00';ctx.font='bold '+(CS*.38)+'px Nunito';
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('E',0,0);
+  }else{
+    var pl=1+Math.sin(frm*.14+f.x+f.y)*.08;ctx.scale(pl,pl);
+    ctx.shadowColor=f.c;ctx.shadowBlur=13;
+    ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fillStyle=f.c+'CC';ctx.fill();
+    ctx.beginPath();ctx.arc(-r*.27,-r*.27,r*.3,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.36)';ctx.fill();
+    ctx.shadowBlur=0;ctx.fillStyle='#fff';
+    ctx.font='bold '+(ph==='G1'?CS*.33:CS*.48)+'px Nunito';
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(f.t,0,0);
+  }
+  ctx.restore();
+}
+
+function drStar(c,cx,cy,sp,ou,i2){
+  var rot=(Math.PI/2)*3,step=Math.PI/sp;
+  c.beginPath();c.moveTo(cx,cy-ou);
+  for(var i=0;i<sp;i++){
+    c.lineTo(cx+Math.cos(rot)*ou,cy+Math.sin(rot)*ou);rot+=step;
+    c.lineTo(cx+Math.cos(rot)*i2,cy+Math.sin(rot)*i2);rot+=step;
+  }
+  c.lineTo(cx,cy-ou);c.closePath();
+}
+
+function drS(){
+  var cfg=PC[PHS[pi]];
+  for(var si=0;si<snake.length;si++){
+    var seg=snake[si],x=seg.x*CS,y=seg.y*CS,cx=x+CS/2,cy=y+CS/2;
+    var p=si/snake.length,isH=(si===0);
+    var al=1-p*.42;
+    if(glw&&PHS[pi]==='S'){al*=(Math.sin(frm*.28+si*.5)>0?1.18:.78);ctx.shadowColor='#2196F3';ctx.shadowBlur=22;}
+    ctx.save();ctx.globalAlpha=Math.max(0,Math.min(1,al));
+    var r=isH?CS*.46:Math.max(CS*.35-p*2,3);
+    var g;
+    if(isH){
+      g=ctx.createRadialGradient(cx-2,cy-2,0,cx,cy,r*1.2);
+      g.addColorStop(0,lc(cfg.clr,42));g.addColorStop(1,cfg.clr);
+      ctx.fillStyle=g;ctx.shadowColor=cfg.clr;ctx.shadowBlur=22;
+    }else{
+      g=ctx.createRadialGradient(cx-1,cy-1,0,cx,cy,r);
+      g.addColorStop(0,lc(cfg.clr,18));g.addColorStop(1,dc(cfg.clr,18));
+      ctx.fillStyle=g;ctx.shadowColor=cfg.clr;ctx.shadowBlur=8;
+    }
+    ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fill();
+    if(isH){
+      ctx.shadowBlur=0;
+      var eo=4.5,px=-dir.y,py=dir.x;
+      [-1,1].forEach(function(s){
+        ctx.fillStyle='white';ctx.beginPath();ctx.arc(cx+dir.x*5+px*eo*s,cy+dir.y*5+py*eo*s,3.2,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle='#0a1020';ctx.beginPath();ctx.arc(cx+dir.x*6+px*eo*s,cy+dir.y*6+py*eo*s,1.6,0,Math.PI*2);ctx.fill();
+      });
+    }
+    ctx.restore();
+  }
+  ctx.shadowBlur=0;
+}
+
+function spF(){
+  var ph=PHS[pi],cfg=PC[ph];
+  if(!cfg.fd.length)return;
+  var t=cfg.fd[Math.floor(Math.random()*cfg.fd.length)],c=cfg.fc[t];
+  var pos=null,tries=0;
+  while(!pos&&tries<100){
+    var gx=Math.floor(Math.random()*GN),gy=Math.floor(Math.random()*GN);
+    var cx=gx*CS+CS/2,cy=gy*CS+CS/2;
+    var onS=false;for(var i=0;i<snake.length;i++){if(snake[i].x===gx&&snake[i].y===gy){onS=true;break;}}
+    var onF=false;for(var i=0;i<foods.length;i++){if(foods[i].x===gx&&foods[i].y===gy){onF=true;break;}}
+    if(Math.sqrt((cx-CC.x)*(cx-CC.x)+(cy-CC.y)*(cy-CC.y))<CR-CS*1.5&&!onS&&!onF)pos={x:gx,y:gy};
+    tries++;
+  }
+  if(pos)foods.push({x:pos.x,y:pos.y,t:t,c:c});
+}
+
+function chkP(){if(prg>=PC[PHS[pi]].tg)advP();}
+function advP(){
+  pi++;
+  if(pi>=PHS.length){pi=PHS.length-1;trigM();return;}
+  prg=0;foods=[];spd=PC[PHS[pi]].sp;sfxP();updHUD();
+  shPT(PHS[pi],function(){spF();spF();loop();});
+}
+
+var ptCb=null;
+function shPT(ph,cb){
+  running=false;ptCb=cb;
+  var cfg=PC[ph],ov=document.getElementById('pov'),card=document.getElementById('tcard');
+  card.style.borderColor=cfg.clr;
+  document.getElementById('tric').textContent=cfg.em;
+  document.getElementById('trtl').textContent=cfg.ttl;
+  document.getElementById('trsb').textContent=cfg.tsb;
+  document.getElementById('trbio').textContent='🔬 '+cfg.bio;
+  document.getElementById('trbio').style.borderLeftColor=cfg.clr;
+  var cd=document.getElementById('trcd');cd.style.color=cfg.clr;
+  ov.classList.add('show');
+  var n=3;cd.textContent=n;
+  var tm=setInterval(function(){
+    n--;
+    if(n<=0){clearInterval(tm);ov.classList.remove('show');running=true;if(ptCb)ptCb();}
+    else cd.textContent=n;
+  },1000);
+}
+
+function trigM(){
+  bgX();sfxM();running=false;showSc('mitosis-screen');
+  var mc=document.getElementById('mcanvas'),mctx=mc.getContext('2d');
+  cyc++;mult*=2;score+=500*(mult/2);
+  document.getElementById('mtitle').textContent='✨ Nguyên Phân Thành Công! ✨';
+  document.getElementById('msub').textContent='Chu kỳ lần '+cyc+' hoàn thành! Hệ số điểm: x'+mult+'!';
+  var t=0,snap=snake.slice();
+  function rm(){
+    mctx.clearRect(0,0,560,360);
+    var mb=mctx.createLinearGradient(0,0,560,360);mb.addColorStop(0,'#08001a');mb.addColorStop(1,'#18003a');
+    mctx.fillStyle=mb;mctx.fillRect(0,0,560,360);
+    for(var i=0;i<30;i++){
+      var ang=(i/30)*Math.PI*2+t*.022,rr=72+Math.sin(t*.055+i)*26;
+      var px=280+Math.cos(ang)*rr*(1+t*.008),py=180+Math.sin(ang)*rr*.5;
+      var al=Math.max(0,1-t*.009);
+      mctx.beginPath();mctx.arc(px,py,2.4,0,Math.PI*2);
+      mctx.fillStyle='hsla('+(270+i*6)+',80%,72%,'+al+')';mctx.fill();
+    }
+    var sep=Math.min(t*2.5,120),hl=Math.floor(snap.length/2);
+    for(var k=0;k<2;k++){
+      var ox=k===0?-sep:sep;
+      for(var i=0;i<hl;i++){
+        var pr=i/hl,al2=(1-pr*.5)*Math.max(0,1-(t-42)*.013);
+        var r2=Math.max(9-pr*4,3),x2=280+ox+(i-hl/2)*11,y2=180+Math.sin(i*.5+t*.05)*8;
+        mctx.globalAlpha=al2;mctx.beginPath();mctx.arc(x2,y2,r2,0,Math.PI*2);
+        var hue=k===0?130:270,g2=mctx.createRadialGradient(x2,y2,0,x2,y2,r2);
+        g2.addColorStop(0,'hsl('+hue+',82%,72%)');g2.addColorStop(1,'hsl('+hue+',62%,42%)');
+        mctx.fillStyle=g2;mctx.shadowColor='hsl('+hue+',82%,62%)';mctx.shadowBlur=14;mctx.fill();
+      }
+    }
+    mctx.globalAlpha=1;mctx.shadowBlur=0;
+    if(t<26){mctx.fillStyle='rgba(156,39,176,'+((1-t/26)*.55)+')';mctx.fillRect(0,0,560,360);}
+    if(t>26){
+      var ta=Math.min(1,(t-26)/18);mctx.globalAlpha=ta;
+      mctx.fillStyle='#FFD700';mctx.font='bold 24px Nunito';mctx.textAlign='center';
+      mctx.fillText('🎉 Nguyên Phân Hoàn Tất! 🎉',280,316);
+      mctx.fillStyle='white';mctx.font='17px Nunito';
+      mctx.fillText('Hệ số điểm mới: x'+mult,280,344);
+      mctx.globalAlpha=1;
+    }
+    t++;
+    if(t<110)requestAnimationFrame(rm);
+    else setTimeout(rstM,900);
+  }
+  requestAnimationFrame(rm);
+}
+
+function rstM(){
+  var sx=Math.floor(GN/2),sy=Math.floor(GN/2);
+  snake=[{x:sx,y:sy},{x:sx-1,y:sy},{x:sx-2,y:sy}];
+  dir={x:1,y:0};nd={x:1,y:0};pi=0;prg=0;foods=[];
+  spd=Math.max(72,PC['G1'].sp-cyc*20);
+  showSc('game-screen');updHUD();bgS();
+  shPT('G1',function(){spF();spF();loop();});
+}
+
+function updHUD(){
+  document.getElementById('sdsp').textContent=score.toLocaleString('vi-VN');
+  document.getElementById('mdsp').textContent='x'+mult;
+  var ph=PHS[pi],cfg=PC[ph];
+  var phEl=document.getElementById('phind');phEl.className='phind '+ph.toLowerCase();
+  var pnEl=document.getElementById('phnm');pnEl.textContent=cfg.nm;pnEl.className='pnm p'+ph.toLowerCase();
+  document.getElementById('phds').textContent=cfg.ds;
+  document.getElementById('prlbl').textContent=cfg.pl;
+  var pct=cfg.tg>0?(prg/cfg.tg)*100:100;
+  var pf=document.getElementById('prfill');
+  pf.style.width=pct+'%';
+  pf.style.background='linear-gradient(90deg,'+cfg.clr+','+lc(cfg.clr,22)+')';
+  document.getElementById('prtxt').textContent=prg+' / '+cfg.tg;
+  ['g1','s','g2','m'].forEach(function(p,i){
+    var el=document.getElementById('a'+p);
+    if(el)el.style.opacity=i<pi?'1':(i===pi?'.92':'.2');
+  });
+  var dot=document.getElementById('cdot');
+  if(dot){dot.setAttribute('cx',cfg.dt.cx);dot.setAttribute('cy',cfg.dt.cy);dot.setAttribute('fill',cfg.clr);}
+}
+
+function endG(reason){
+  running=false;bgX();sfxD();
+  if(loopT){clearTimeout(loopT);loopT=null;}
+  document.getElementById('goic').textContent=cyc>0?'🧬':'💀';
+  document.getElementById('gotl').textContent=cyc>0?'Tốt Lắm!':'Game Over!';
+  document.getElementById('goreason').textContent=reason;
+  document.getElementById('fscore').textContent=score.toLocaleString('vi-VN');
+  document.getElementById('cdone').textContent=cyc;
+  document.getElementById('preach').textContent='Pha '+PHS[pi];
+  psc='gameover-screen';showSc('gameover-screen');
+}
+
+function pauseGame(){if(!running)return;paused=true;document.getElementById('pauseov').classList.add('show');}
+function resumeGame(){paused=false;document.getElementById('pauseov').classList.remove('show');}
+
+function gLb(){try{return JSON.parse(localStorage.getItem('cbsnk')||'[]');}catch(e){return[];}}
+function saveSc(){
+  var nm=document.getElementById('pname').value.trim()||'Tế Bào Ẩn Danh';
+  var lb=gLb();
+  lb.push({nm:nm,score:score,cyc:cyc,ph:'Pha '+PHS[pi],dt:new Date().toLocaleDateString('vi-VN')});
+  lb.sort(function(a,b){return b.score-a.score;});lb.splice(20);
+  localStorage.setItem('cbsnk',JSON.stringify(lb));
+  shT('💾','Đã Lưu!','Điểm đã được ghi lại!','#4CAF50',2200);
+}
+function rnLb(){
+  var lb=gLb(),list=document.getElementById('lblist');
+  var md=['🥇','🥈','🥉'],cl=['gld','slv','brz'];
+  if(!lb.length){list.innerHTML='<div style="text-align:center;opacity:.5;padding:36px">Chưa có điểm nào!<br>Hãy chơi và ghi danh 🎮</div>';return;}
+  list.innerHTML=lb.map(function(e,i){
+    return '<div class="lbitem '+(cl[i]||'')+'"><div class="lbrank">'+(md[i]||(i+1))+'</div><div><div class="lbname">'+esc(e.nm)+'</div><div class="lbmeta">'+e.cyc+' chu kỳ · '+e.ph+' · '+(e.dt||'')+'</div></div><div class="lbscore">'+((e.score||0).toLocaleString('vi-VN'))+'</div></div>';
+  }).join('');
+}
+function clrLb(){if(confirm('Xóa toàn bộ bảng xếp hạng?')){localStorage.removeItem('cbsnk');rnLb();}}
+function esc(s){return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+var ttmr=null;
+function shT(icon,title,msg,color,dur){
+  dur=dur||3000;color=color||'#4CAF50';
+  var el=document.getElementById('toast');
+  document.getElementById('tico').textContent=icon;
+  document.getElementById('ttitle').textContent=title;
+  document.getElementById('ttitle').style.color=color;
+  document.getElementById('tmsg').textContent=msg;
+  el.style.borderColor=color+'80';
+  el.classList.add('show');
+  if(ttmr)clearTimeout(ttmr);
+  ttmr=setTimeout(function(){el.classList.remove('show');},dur);
+}
+
+function lc(hex,a){var n=parseInt(hex.replace('#',''),16);return 'rgb('+Math.min(255,(n>>16)+a)+','+Math.min(255,((n>>8)&0xff)+a)+','+Math.min(255,(n&0xff)+a)+')';}
+function dc(hex,a){var n=parseInt(hex.replace('#',''),16);return 'rgb('+Math.max(0,(n>>16)-a)+','+Math.max(0,((n>>8)&0xff)-a)+','+Math.max(0,(n&0xff)-a)+')';}
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'||e.key==='p'||e.key==='P'){if(running&&!paused)pauseGame();else if(paused)resumeGame();return;}
+  if(paused&&e.key===' '){resumeGame();return;}
+  if(!running||paused)return;
+  var km={ArrowUp:{x:0,y:-1},ArrowDown:{x:0,y:1},ArrowLeft:{x:-1,y:0},ArrowRight:{x:1,y:0},w:{x:0,y:-1},W:{x:0,y:-1},s:{x:0,y:1},S:{x:0,y:1},a:{x:-1,y:0},A:{x:-1,y:0},d:{x:1,y:0},D:{x:1,y:0}};
+  var nnd=km[e.key];
+  if(nnd){e.preventDefault();if(!(nnd.x===-dir.x&&nnd.y===-dir.y))nd=nnd;}
+});
+
+var cv2=document.getElementById('gc');
+cv2.addEventListener('click',function(e){
+  if(!running||paused)return;
+  var rect=cv2.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;
+  var hx=snake[0].x*CS+CS/2,hy=snake[0].y*CS+CS/2,ddx=mx-hx,ddy=my-hy;
+  if(Math.abs(ddx)>Math.abs(ddy)){var nnd={x:ddx>0?1:-1,y:0};if(!(nnd.x===-dir.x))nd=nnd;}
+  else{var nnd={x:0,y:ddy>0?1:-1};if(!(nnd.y===-dir.y))nd=nnd;}
+});
+var tsx=0,tsy=0;
+cv2.addEventListener('touchstart',function(e){tsx=e.touches[0].clientX;tsy=e.touches[0].clientY;e.preventDefault();},{passive:false});
+cv2.addEventListener('touchend',function(e){
+  if(!running||paused)return;
+  var ddx=e.changedTouches[0].clientX-tsx,ddy=e.changedTouches[0].clientY-tsy;
+  if(Math.abs(ddx)>Math.abs(ddy)){var nnd={x:ddx>0?1:-1,y:0};if(!(nnd.x===-dir.x))nd=nnd;}
+  else{var nnd={x:0,y:ddy>0?1:-1};if(!(nnd.y===-dir.y))nd=nnd;}
+  e.preventDefault();
+},{passive:false});
+
+(function(){
+  var c=document.getElementById('bgp'),cls=['#4CAF50','#2196F3','#FF9800','#9C27B0','#FFD700'];
+  for(var i=0;i<22;i++){
+    var el=document.createElement('div');el.className='par';
+    var sz=Math.random()*5+2;
+    el.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;background:'+cls[Math.floor(Math.random()*cls.length)]+';animation-duration:'+(9+Math.random()*13)+'s;animation-delay:'+(Math.random()*11)+'s;';
+    c.appendChild(el);
+  }
+})();
+
+showSc('menu-screen');
+</script>
+</body>
+</html>
