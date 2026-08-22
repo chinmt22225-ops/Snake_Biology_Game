@@ -782,7 +782,9 @@ function initTemplate(){
 function chkP(){if(prg>=PC[PHS[pi]].tg)advP();}
 function advP(){
   pi++;
-  if(pi>=PHS.length){pi=PHS.length-1;trigM();return;}
+  if(pi>=PHS.length){pi=PHS.length-1;}
+  // Trigger mitosis cutscene when entering Phase M
+  if(PHS[pi]==='M'){trigM();return;}
   prg=0;foods=[];spd=PC[PHS[pi]].sp;sfxP();
   spawnMutations(PHS[pi]);
   if(PHS[pi]==='S')initTemplate();
